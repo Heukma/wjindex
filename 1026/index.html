@@ -1162,11 +1162,6 @@
     </div>
 </body>
 <script type="text/javascript">
-  let student1action;
-  let student2action;
-  let student3action;
-  let student4action;
-
   let student1color;
   let student2color;
   let student3color;
@@ -1475,13 +1470,6 @@
       url: "/vad_feed",
       type: "POST",
       success: function (response) {
-        console.log("vad feed success!!");
-
-        console.log(response["SpeechCount1"]);
-        console.log(response["SpeechCount2"]);
-        console.log(response["SpeechCount3"]);
-        console.log(response["SpeechCount4"]);
-
         $("#prenum1").text(response["SpeechCount1"]);
         $("#prenum2").text(response["SpeechCount2"]);
         $("#prenum3").text(response["SpeechCount3"]);
@@ -1560,6 +1548,11 @@
         student2action = response["stu2General"];
         student3action = response["stu3General"];
         student4action = response["stu4General"];
+
+        console.log(student1action);
+        console.log(student2action);
+        console.log(student3action);
+        console.log(student4action);
 
         if(student1action[0]==="1"){
           student1record[0]++;
