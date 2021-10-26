@@ -1586,7 +1586,7 @@
           stu1handposerecord[0]++;
         }
         else if(student1hand ==="10"){ //OK
-          stu1handposerecord[0]++;
+          stu1handposerecord[1]++;
         }
         else{
           stu1handposerecord[0]=0;
@@ -1597,7 +1597,7 @@
           stu2handposerecord[0]++;
         }
         else if(student2hand ==="10"){ //OK
-          stu2handposerecord[0]++;
+          stu2handposerecord[1]++;
         }
         else{
           stu2handposerecord[0]=0;
@@ -1608,7 +1608,7 @@
           stu3handposerecord[0]++;
         }
         else if(student3hand ==="10"){ //OK
-          stu3handposerecord[0]++;
+          stu3handposerecord[1]++;
         }
         else{
           stu3handposerecord[0]=0;
@@ -1619,7 +1619,7 @@
           stu4handposerecord[0]++;
         }
         else if(student4hand ==="10"){ //OK
-          stu4handposerecord[0]++;
+          stu4handposerecord[1]++;
         }
         else{
           stu4handposerecord[0]=0;
@@ -1726,10 +1726,10 @@
           student4record[3]=0;
         }
 
-        if(stu1handposerecord[0]>3){
+        if(stu1handposerecord[0]>2){
           std1hand1.style.display = "block";
         }
-        else if(stu1handposerecord[1]>3){
+        else if(stu1handposerecord[1]>2){
           std1hand2.style.display = "block";
         }
         else{
@@ -1737,10 +1737,10 @@
           std1hand2.style.display = "none";
         }
 
-        if(stu2handposerecord[0]>3){
+        if(stu2handposerecord[0]>2){
           std2hand1.style.display = "block";
         }
-        else if(stu2handposerecord[1]>3){
+        else if(stu2handposerecord[1]>2){
           std2hand2.style.display = "block";
         }
         else{
@@ -1748,10 +1748,10 @@
           std2hand2.style.display = "none";
         }
 
-        if(stu3handposerecord[0]>3){
+        if(stu3handposerecord[0]>2){
           std3hand1.style.display = "block";
         }
-        else if(stu3handposerecord[1]>3){
+        else if(stu3handposerecord[1]>2){
           std3hand2.style.display = "block";
         }
         else{
@@ -1759,10 +1759,10 @@
           std3hand2.style.display = "none";
         }
 
-        if(stu4handposerecord[0]>3){
+        if(stu4handposerecord[0]>2){
           std4hand1.style.display = "block";
         }
-        else if(stu4handposerecord[1]>3){
+        else if(stu4handposerecord[1]>2){
           std4hand2.style.display = "block";
         }
         else{
