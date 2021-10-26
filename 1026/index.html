@@ -1651,25 +1651,16 @@
           /*video end*/
           finishAlarm.style.display = "block";
         }
-        std1score=((((std1totalcolor[2] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0])) * 5) / 3 +
-                  ((std1totalcolor[1] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0]))) * 2) / 3)*
-                (1 - ((std1totalcolor[0] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0])) / 2)) *
-                100;
-        std2score=((((std2totalcolor[2] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0])) * 5) / 3 +
-                  ((std2totalcolor[1] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0]))) * 2) / 3) *
-                  (1 - ((std2totalcolor[0] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0])) / 2)) *
-                  100;
-        std3score=((((std3totalcolor[2] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0])) * 5) / 3 +
-                  ((std3totalcolor[1] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0]))) * 2) / 3) *
-                  (1 - ((std3totalcolor[0] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0])) / 2)) *
-                    100;
+        let totalcolor = std1totalcolor[0]+std1totalcolor[1]+std1totalcolor[2];
+        std1score=((std1totalcolor[0]/totalcolor)*5/3+(std1totalcolor[1]/totalcolor)*2/3)*(1-(std1totalcolor[2]/totalcolor)/2)*100;
+        std2score=((std2totalcolor[0]/totalcolor)*5/3+(std2totalcolor[1]/totalcolor)*2/3)*(1-(std2totalcolor[2]/totalcolor)/2)*100;
+        std3score=((std3totalcolor[0]/totalcolor)*5/3+(std3totalcolor[1]/totalcolor)*2/3)*(1-(std3totalcolor[2]/totalcolor)/2)*100;
+        std4score=((std4totalcolor[0]/totalcolor)*5/3+(std4totalcolor[1]/totalcolor)*2/3)*(1-(std4totalcolor[2]/totalcolor)/2)*100;
 
-        std4score=((((std4totalcolor[2] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0])) * 5) / 3 +
-                  ((std4totalcolor[1] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0]))) * 2) / 3) *
-                  (1 - ((std4totalcolor[0] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0])) / 2)) *
-                  100;
-
-
+        if(std1score>100) std1score=100;
+        if(std2score>100) std2score=100;
+        if(std3score>100) std3score=100;
+        if(std4score>100) std4score=100;
       },
       error: function (error) {
         console.log("error!");
