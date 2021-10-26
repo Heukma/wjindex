@@ -1586,7 +1586,7 @@
           student2record[0]=0;
         }
         if(student2action[1]==="1"){
-          student2actionrecord[1]++;
+          student2record[1]++;
         }
         else{
           student2record[1]=0;
@@ -1611,7 +1611,7 @@
           student3record[0]=0;
         }
         if(student3action[1]==="1"){
-          student3actionrecord[1]++;
+          student3record[1]++;
         }
         else{
           student3record[1]=0;
@@ -1636,7 +1636,7 @@
           student4record[0]=0;
         }
         if(student4action[1]==="1"){
-          student4actionrecord[1]++;
+          student4record[1]++;
         }
         else{
           student4record[1]=0;
@@ -1654,6 +1654,140 @@
           student4record[3]=0;
         }
 
+        if(student1record[0]>5){
+          std1_modal1_on();
+          stu1_img1.style.display = "block";
+        }
+        else{
+          std1_modal1_off();
+          stu1_img1.style.display = "none";
+        }
+        if(student1record[1]>5){
+          std1_modal2_on();
+          stu1_img2.style.display = "block";
+        }
+        else{
+          std1_modal2_off();
+          stu1_img2.style.display = "none";
+        }
+        if(student1record[2]>5){
+          std1_modal3_on();
+          stu1_img3.style.display = "block";
+        }
+        else{
+          std1_modal3_off();
+          stu1_img3.style.display = "none";
+        }
+        if(student1record[3]>5){
+          std1_modal4_on();
+          stu1_img4.style.display = "block";
+        }
+        else{
+          std1_modal4_off();
+          stu1_img4.style.display = "none";
+        }
+
+        if(student2record[0]>5){
+          std2_modal1_on();
+          stu2_img1.style.display = "block";
+        }
+        else{
+          std2_modal1_off();
+          stu2_img1.style.display = "none";
+        }
+
+        if(student2record[1]>5){
+          std2_modal2_on();
+          stu2_img2.style.display = "block";
+        }
+        else{
+          std2_modal2_off();
+          stu2_img2.style.display = "none";
+        }
+        if(student2record[2]>5){
+          std2_modal3_on();
+          stu2_img3.style.display = "block";
+        }
+        else{
+          std2_modal3_off();
+          stu2_img3.style.display = "none";
+        }
+        if(student2record[3]>5){
+          std2_modal4_on();
+          stu2_img4.style.display = "block";
+        }
+        else{
+          std2_modal4_off();
+          stu2_img4.style.display = "none";
+        }
+
+        if(student3record[0]>5){
+          std3_modal1_on();
+          stu3_img1.style.display = "block";
+        }
+        else{
+          std3_modal1_off();
+          stu3_img1.style.display = "none";
+        }
+
+        if(student3record[1]>5){
+          std3_modal2_on();
+          stu3_img2.style.display = "block";
+        }
+        else{
+          std3_modal2_off();
+          stu3_img2.style.display = "none";
+        }
+        if(student3record[2]>5){
+          std3_modal3_on();
+          stu3_img3.style.display = "block";
+        }
+        else{
+          std3_modal3_off();
+          stu3_img3.style.display = "none";
+        }
+        if(student3record[3]>5){
+          std3_modal4_on();
+          stu3_img4.style.display = "block";
+        }
+        else{
+          std3_modal4_off();
+          stu3_img4.style.display = "none";
+        }
+
+        if(student4record[0]>5){
+          std4_modal1_on();
+          stu4_img1.style.display = "block";
+        }
+        else{
+          std4_modal1_off();
+          stu4_img1.style.display = "none";
+        }
+
+        if(student4record[1]>5){
+          std4_modal2_on();
+          stu4_img2.style.display = "block";
+        }
+        else{
+          std4_modal2_off();
+          stu4_img2.style.display = "none";
+        }
+        if(student4record[2]>5){
+          std4_modal3_on();
+          stu4_img3.style.display = "block";
+        }
+        else{
+          std4_modal3_off();
+          stu4_img3.style.display = "none";
+        }
+        if(student4record[3]>5){
+          std4_modal4_on();
+          stu4_img4.style.display = "block";
+        }
+        else{
+          std4_modal4_off();
+          stu4_img4.style.display = "none";
+        }
       },
       error: function (error) {
         console.log("signal_err");
