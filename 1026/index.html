@@ -6,8 +6,11 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="{{ url_for('static', filename='scoring_circular_bar.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <style>
         #wrap {
             width: 100%;
@@ -240,6 +243,11 @@
             position: absolute;
             top: 12.5px;
             left: 452px;
+        }
+        .stdfooter .heart{
+          position: absolute;
+          top:14px;
+          left:23px;
         }
 
         .stdfooter .presentation {
@@ -656,6 +664,27 @@
             font-weight: bold;
             padding: 20px;
           }
+          .progress{
+            position: absolute;
+            width: 360px;
+            height: 24px;
+            top: 15px;
+            left : 60px;
+          }
+
+          #std1progressbar{
+            width: 10%;
+          }
+          #std2progressbar{
+            width: 10%;
+          }
+          #std3progressbar{
+            width: 10%;
+          }
+          #std4progressbar{
+            width: 10%;
+          }
+
     </style>
 </head>
 <!--
@@ -681,6 +710,7 @@
 
     영상이 종료되었습니다. 새로고침 버튼을 눌러 다시 시작하세요.
   </div>
+
     <div id="wrap">
       <!--이미지, 학생얼굴 뜨기까지 흰화면으로 로딩-->
       <div id="loading" class="loading">
@@ -955,6 +985,14 @@
 
                 <div class="stdfooter" style="left: 74px;top: 419px;">
                     <!--학생마다 수정-->
+                    <div class="heart">
+                      <img src="./heart.png">
+                    </div>
+
+                    <div class="progress active">
+                        <div id="std1progressbar" class="progress-bar progress-bar-success" style="font-size: 15px"></div>
+                    </div>
+
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
                     </div>
@@ -1007,6 +1045,12 @@
 
                 <div class="stdfooter" style="left: 758px;top: 419px;">
                     <!--학생마다 수정-->
+                    <div class="heart">
+                      <img src="./heart.png">
+                    </div>
+                    <div class="progress active">
+                        <div id="std2progressbar" class="progress-bar progress-bar-success" style="font-size: 15px"></div>
+                    </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
                     </div>
@@ -1058,6 +1102,12 @@
 
                 <div class="stdfooter" style="left: 74px;top: 825px;">
                     <!--학생마다 수정-->
+                    <div class="heart">
+                      <img src="./heart.png">
+                    </div>
+                    <div class="progress active">
+                        <div id="std3progressbar" class="progress-bar progress-bar-success" style="font-size: 15px"></div>
+                    </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
                     </div>
@@ -1110,6 +1160,12 @@
 
                 <div class="stdfooter" style="left: 758px;top: 825px;">
                     <!--학생마다 수정-->
+                    <div class="heart">
+                      <img src="./heart.png">
+                    </div>
+                    <div class="progress active">
+                        <div id="std4progressbar" class="progress-bar progress-bar-success" style="font-size: 15px"></div>
+                    </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
                     </div>
@@ -1170,6 +1226,16 @@
   let student3color;
   let student4color;
 
+  let std1totalcolor = [0,0,0];
+  let std2totalcolor = [0,0,0];
+  let std3totalcolor = [0,0,0];
+  let std4totalcolor = [0,0,0];
+
+  let std1score;
+  let std2score;
+  let std3score;
+  let std4score;
+
   let student1record = [0,0,0,0];
   let student2record = [0,0,0,0];
   let student3record = [0,0,0,0];
@@ -1185,6 +1251,13 @@
   let std2modalon = 0;
   let std3modalon = 0;
   let std4modalon = 0;
+
+  /*게미피케이션 체력바*/
+  const std1progressbar = document.getElementById("std1progressbar");
+  const std2progressbar = document.getElementById("std2progressbar");
+  const std3progressbar = document.getElementById("std3progressbar");
+  const std4progressbar = document.getElementById("std4progressbar");
+
 
   /*handpose 관련 모달*/
   const std1hand1 = document.getElementById("std1hand1");
@@ -1524,48 +1597,78 @@
         student4color = response["stu4Color"];
         /* 0: not engaged 1: nutural 2: highly engaged*/
         if(student1color==="0"){
+          std1totalcolor[0]++;
           std1head.style.backgroundColor = "#FF5037";
         }
         else if(student1color==="1"){
+          std1totalcolor[1]++;
           std1head.style.backgroundColor = "#FFD151";
         }
         else if(student1color==="2"){
+          std1totalcolor[2]++;
           std1head.style.backgroundColor = "#40CC30";
         }
 
         if(student2color==="0"){
+          std2totalcolor[0]++;
           std2head.style.backgroundColor = "#FF5037";
         }
         else if(student2color==="1"){
+          std2totalcolor[1]++;
           std2head.style.backgroundColor = "#FFD151";
         }
         else if(student2color==="2"){
+          std2totalcolor[2]++;
           std2head.style.backgroundColor = "#40CC30";
         }
 
         if(student3color==="0"){
+          std3totalcolor[0]++;
           std3head.style.backgroundColor = "#FF5037";
         }
         else if(student3color==="1"){
+          std3totalcolor[1]++;
           std3head.style.backgroundColor = "#FFD151";
         }
         else if(student3color==="2"){
+          std3totalcolor[2]++;
           std3head.style.backgroundColor = "#40CC30";
         }
 
         if(student4color==="0"){
+          std4totalcolor[0]++;
           std4head.style.backgroundColor = "#FF5037";
         }
         else if(student4color==="1"){
+          std4totalcolor[1]++;
           std4head.style.backgroundColor = "#FFD151";
         }
         else if(student4color==="2"){
+          std4totalcolor[2]++;
           std4head.style.backgroundColor = "#40CC30";
         }
         if(student1color==="-1"){
           /*video end*/
           finishAlarm.style.display = "block";
         }
+        std1score=(((std1totalcolor[2] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0])) * 5) / 3 +
+                  ((std1totalcolor[1] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0]))) * 2) / 3) *
+                (1 - std1totalcolor[0] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0])) / 2) *
+                100;
+        std2score=(((std2totalcolor[2] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0])) * 5) / 3 +
+                  ((std2totalcolor[1] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0]))) * 2) / 3) *
+                  (1 - std2totalcolor[0] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0])) / 2) *
+                  100;
+        std3score=(((std3totalcolor[2] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0])) * 5) / 3 +
+                  ((std3totalcolor[1] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0]))) * 2) / 3) *
+                  (1 - std3totalcolor[0] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0])) / 2) *
+                    100;
+
+        std4score=(((std4totalcolor[2] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0])) * 5) / 3 +
+                  ((std4totalcolor[1] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0]))) * 2) / 3) *
+                  (1 - std4totalcolor[0] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0])) / 2) *
+                  100;
+
 
       },
       error: function (error) {
@@ -1990,6 +2093,12 @@
     });
   }, 1000);
 
+  setInterval(function(){
+    std1progressbar.animate({width: String(std1score)+"%"},1000);
+    std2progressbar.animate({width: String(std2score)+"%"},1000);
+    std3progressbar.animate({width: String(std3score)+"%"},1000);
+    std4progressbar.animate({width: String(std4score)+"%"},1000);
+  },10000);
   stu1_img3.addEventListener("click", (e) => {
     std1_modal3_on();
   });
