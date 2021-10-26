@@ -673,16 +673,16 @@
           }
 
           #std1progressbar{
-            width: 10%;
+            width: 50%;
           }
           #std2progressbar{
-            width: 10%;
+            width: 50%;
           }
           #std3progressbar{
-            width: 10%;
+            width: 50%;
           }
           #std4progressbar{
-            width: 10%;
+            width: 50%;
           }
 
     </style>
@@ -1231,10 +1231,10 @@
   let std3totalcolor = [0,0,0];
   let std4totalcolor = [0,0,0];
 
-  let std1score;
-  let std2score;
-  let std3score;
-  let std4score;
+  let std1score=50;
+  let std2score=50;
+  let std3score=50;
+  let std4score=50;
 
   let student1record = [0,0,0,0];
   let student2record = [0,0,0,0];
@@ -1651,22 +1651,22 @@
           /*video end*/
           finishAlarm.style.display = "block";
         }
-        std1score=(((std1totalcolor[2] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0])) * 5) / 3 +
-                  ((std1totalcolor[1] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0]))) * 2) / 3) *
-                (1 - std1totalcolor[0] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0])) / 2) *
+        std1score=((((std1totalcolor[2] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0])) * 5) / 3 +
+                  ((std1totalcolor[1] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0]))) * 2) / 3)*
+                (1 - ((std1totalcolor[0] / (std1totalcolor[2]+std1totalcolor[1]+std1totalcolor[0])) / 2)) *
                 100;
-        std2score=(((std2totalcolor[2] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0])) * 5) / 3 +
+        std2score=((((std2totalcolor[2] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0])) * 5) / 3 +
                   ((std2totalcolor[1] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0]))) * 2) / 3) *
-                  (1 - std2totalcolor[0] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0])) / 2) *
+                  (1 - ((std2totalcolor[0] / (std2totalcolor[2]+std2totalcolor[1]+std2totalcolor[0])) / 2)) *
                   100;
-        std3score=(((std3totalcolor[2] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0])) * 5) / 3 +
+        std3score=((((std3totalcolor[2] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0])) * 5) / 3 +
                   ((std3totalcolor[1] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0]))) * 2) / 3) *
-                  (1 - std3totalcolor[0] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0])) / 2) *
+                  (1 - ((std3totalcolor[0] / (std3totalcolor[2]+std3totalcolor[1]+std3totalcolor[0])) / 2)) *
                     100;
 
-        std4score=(((std4totalcolor[2] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0])) * 5) / 3 +
+        std4score=((((std4totalcolor[2] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0])) * 5) / 3 +
                   ((std4totalcolor[1] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0]))) * 2) / 3) *
-                  (1 - std4totalcolor[0] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0])) / 2) *
+                  (1 - ((std4totalcolor[0] / (std4totalcolor[2]+std4totalcolor[1]+std4totalcolor[0])) / 2)) *
                   100;
 
 
@@ -2094,10 +2094,14 @@
   }, 1000);
 
   setInterval(function(){
-    std1progressbar.animate({width: String(std1score)+"%"},1000);
-    std2progressbar.animate({width: String(std2score)+"%"},1000);
-    std3progressbar.animate({width: String(std3score)+"%"},1000);
-    std4progressbar.animate({width: String(std4score)+"%"},1000);
+    std1progressbar.animate({width: String(std1score)+"%"},10000);
+    std1progressbar.style.width = String(std1score)+"%";
+    std2progressbar.animate({width: String(std2score)+"%"},10000);
+    std2progressbar.style.width = String(std2score)+"%";
+    std3progressbar.animate({width: String(std3score)+"%"},10000);
+    std3progressbar.style.width = String(std3score)+"%";
+    std4progressbar.animate({width: String(std4score)+"%"},10000);
+    std4progressbar.style.width = String(std4score)+"%";
   },10000);
   stu1_img3.addEventListener("click", (e) => {
     std1_modal3_on();
