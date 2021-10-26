@@ -1171,6 +1171,11 @@
   let student2record = [0,0,0,0];
   let student3record = [0,0,0,0];
   let student4record = [0,0,0,0];
+
+  /*영상이 끝남을 알려주는 모달*/
+  const finishAlarm = document.getElementById("finishAlarm");
+  /*영상이 끝남을 알려주는 모달*/
+
   /*버튼 활성화 시키기*/
   const stu1_img1 = document.getElementById("stu1_img1");
   const stu1_img2 = document.getElementById("stu1_img2");
@@ -1260,18 +1265,18 @@
   }
   function std1_modal3_on(){
     std1_modal3.style.display = "block";
-    modal3audio1.play();
   }
   function std1_modal3_off(){
     std1_modal3.style.display = "none";
-    modal3audio1.pause();
-    modal3audio1.currentTime = 0;
   }
   function std1_modal4_on(){
     std1_modal4.style.display = "block";
+    modal3audio1.play();
   }
   function std1_modal4_off(){
     std1_modal4.style.display = "none";
+    modal3audio1.pause();
+    modal3audio1.currentTime = 0;
   }
   std1_modal1.addEventListener("click", (e) => {
         std1_modal1_off();
@@ -1308,18 +1313,18 @@
   }
   function std2_modal3_on(){
     std2_modal3.style.display = "block";
-    modal3audio2.play();
   }
   function std2_modal3_off(){
     std2_modal3.style.display = "none";
-    modal3audio2.pause();
-    modal3audio2.currentTime = 0;
   }
   function std2_modal4_on(){
     std2_modal4.style.display = "block";
+    modal3audio2.play();
   }
   function std2_modal4_off(){
     std2_modal4.style.display = "none";
+    modal3audio2.pause();
+    modal3audio2.currentTime = 0;
   }
   std2_modal1.addEventListener("click", (e) => {
         std2_modal1_off();
@@ -1356,18 +1361,18 @@
   }
   function std3_modal3_on(){
     std3_modal3.style.display = "block";
-    modal3audio3.play();
   }
   function std3_modal3_off(){
     std3_modal3.style.display = "none";
-    modal3audio3.pause();
-    modal3audio3.currentTime = 0;
   }
   function std3_modal4_on(){
     std3_modal4.style.display = "block";
+    modal3audio3.play();
   }
   function std3_modal4_off(){
     std3_modal4.style.display = "none";
+    modal3audio3.pause();
+    modal3audio3.currentTime = 0;
   }
   std3_modal1.addEventListener("click", (e) => {
         std3_modal1_off();
@@ -1404,18 +1409,18 @@
   }
   function std4_modal3_on(){
     std4_modal3.style.display = "block";
-    modal3audio4.play();
   }
   function std4_modal3_off(){
     std4_modal3.style.display = "none";
-    modal3audio4.pause();
-    modal3audio4.currentTime = 0;
   }
   function std4_modal4_on(){
     std4_modal4.style.display = "block";
+    modal3audio4.play();
   }
   function std4_modal4_off(){
     std4_modal4.style.display = "none";
+    modal3audio4.pause();
+    modal3audio4.currentTime = 0;
   }
   std4_modal1.addEventListener("click", (e) => {
         std4_modal1_off();
@@ -1452,6 +1457,9 @@
   const secondbutton = document.getElementById("secondbutton");
   const thirdbutton = document.getElementById("thirdbutton");
   const fourthbutton = document.getElementById("fourthbutton");
+  firstbutton.addEventListener("click", (e) => {
+    finishAlarm.style.display = "block";
+  });
   fourthbutton.addEventListener("click", (e) => {
     //모달창 나오게 만들기
   });
@@ -1530,7 +1538,10 @@
         else if(student4color==="2"){
           std4head.style.backgroundColor = "#40CC30";
         }
-
+        if(student1color==="-1"){
+          /*video end*/
+          finishAlarm.style.display = "block";
+        }
 
       },
       error: function (error) {
@@ -1548,11 +1559,6 @@
         student2action = response["stu2General"];
         student3action = response["stu3General"];
         student4action = response["stu4General"];
-
-        console.log(student1action);
-        console.log(student2action);
-        console.log(student3action);
-        console.log(student4action);
 
         if(student1action[0]==="1"){
           student1record[0]++;
@@ -1671,14 +1677,14 @@
           stu1_img2.style.display = "none";
         }
         if(student1record[2]>5){
-          std1_modal3_on();
+          //std1_modal3_on();
           stu1_img3.style.display = "block";
         }
         else{
-          std1_modal3_off();
+          //std1_modal3_off();
           stu1_img3.style.display = "none";
-        }
-        if(student1record[3]>5){
+        }*/
+        if(student1record[3]>10){
           std1_modal4_on();
           stu1_img4.style.display = "block";
         }
@@ -1705,14 +1711,14 @@
           stu2_img2.style.display = "none";
         }
         if(student2record[2]>5){
-          std2_modal3_on();
+          //std2_modal3_on();
           stu2_img3.style.display = "block";
         }
         else{
-          std2_modal3_off();
+          //std2_modal3_off();
           stu2_img3.style.display = "none";
         }
-        if(student2record[3]>5){
+        if(student2record[3]>10){
           std2_modal4_on();
           stu2_img4.style.display = "block";
         }
@@ -1739,14 +1745,14 @@
           stu3_img2.style.display = "none";
         }
         if(student3record[2]>5){
-          std3_modal3_on();
+          //std3_modal3_on();
           stu3_img3.style.display = "block";
         }
         else{
-          std3_modal3_off();
+          //std3_modal3_off();
           stu3_img3.style.display = "none";
         }
-        if(student3record[3]>5){
+        if(student3record[3]>10){
           std3_modal4_on();
           stu3_img4.style.display = "block";
         }
@@ -1773,14 +1779,14 @@
           stu4_img2.style.display = "none";
         }
         if(student4record[2]>5){
-          std4_modal3_on();
+          //std4_modal3_on();
           stu4_img3.style.display = "block";
         }
         else{
-          std4_modal3_off();
+          //std4_modal3_off();
           stu4_img3.style.display = "none";
         }
-        if(student4record[3]>5){
+        if(student4record[3]>10){
           std4_modal4_on();
           stu4_img4.style.display = "block";
         }
@@ -1795,6 +1801,18 @@
     });
   }, 1000);
 
+  stu1_img3.addEventListener("click", (e) => {
+    std1_modal3_on();
+  });
+  stu2_img3.addEventListener("click", (e) => {
+    std2_modal3_on();
+  });
+  stu3_img3.addEventListener("click", (e) => {
+    std3_modal3_on();
+  });
+  stu4_img3.addEventListener("click", (e) => {
+    std4_modal3_on();
+  });
 </script>
 
 </html>
