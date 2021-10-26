@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Think Bell</title>
+  </head>
+  <style>
+    html, body { height:100%; overflow:hidden } /*overflow 속성 잘보기*/
+
+    .mainframe{
+      position: relative;
+      margin: auto;
+
+      width: 80%;
+      height: 100%;
+    }
+    .logo{
+      position: absolute;
+      width:16%;
+      left:5%;
+    }
+    .logo_image{
+      width: 12.5%;
+    }
+    .logo_word{
+      font-family: Roboto;
+      font-weight: bold;
+      font-size:1em;
+
+    }
+    .mainscreen{
+      position: absolute;
+      z-index:1;
+      width: 85%;
+      height: 90%;
+      top: 5%;
+
+      background: #FAFCFF;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 90px;
+    }
+    .webcamframe{
+      position: absolute;
+      z-index:1;
+      width: 22%;
+      height: 85%;
+      left: 78%;
+      top:7.5%;
+
+      background: #FAFCFF;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+    }
+    .classvideo{
+      position: absolute;
+      z-index: 1;
+      width: 80%;
+      height: 70%;
+
+      left: 8%;
+      top: 10%;
+    }
+    .webcam1{
+      position: absolute;
+      z-index: 2;
+      width: 80%;
+      height: 20%;
+
+      left: 10%;
+      top: 5%;
+      background: #95BFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 35px;
+    }
+    .webcam2{
+      position: absolute;
+      z-index: 2;
+      width: 80%;
+      height: 20%;
+
+      left: 10%;
+      top: 27%;
+      background: #95BFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 35px;
+    }
+    .webcam3{
+      position: absolute;
+      z-index: 2;
+      width: 80%;
+      height: 20%;
+
+      left: 10%;
+      top: 49%;
+      background: #95BFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 35px;
+    }
+    .webcam4{
+      position: absolute;
+      z-index: 2;
+      width: 80%;
+      height: 20%;
+
+      left: 10%;
+      top: 71%;
+      background: #95BFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 35px;
+    }
+    .webcamframe video:nth-child(1){
+      position: absolute;
+      z-index: 3;
+      width: 70%;
+
+      left: 15%;
+      top: 7%;
+      border-radius: 20px;
+    }
+    .webcamframe video:nth-child(2){
+      position: absolute;
+      z-index: 3;
+      width: 70%;
+
+      left: 15%;
+      top: 29%;
+      border-radius: 20px;
+    }
+    .webcamframe video:nth-child(3){
+      position: absolute;
+      z-index: 3;
+      width: 70%;
+
+      left: 15%;
+      top: 51%;
+      border-radius: 20px;
+    }
+    .webcamframe video:nth-child(4){
+      position: absolute;
+      z-index: 3;
+      width: 70%;
+
+      left: 15%;
+      top: 73%;
+      border-radius: 20px;
+    }
+  </style>
+  <body>
+    <div class="mainframe">
+      <div class="logo">
+        <img class="logo_image" src="http://drive.google.com/uc?export=view&id=1ZAUwwb1v_X6N6-dxksrhVM0kirk6E2yR" alt="ThinkBellLogo">
+        <span class="logo_word">
+          ThinkBell
+        </span>
+
+      </div>
+      <div class="mainscreen">
+          <video autoplay controls class="classvideo">
+            <source src="SampleVideo1.mp4" type="video/mp4" >
+          </video>
+      </div>
+      <div class="webcamframe">
+        <div class="webcam1">
+        </div>
+        <div class="webcam2">
+        </div>
+        <div class="webcam3">
+        </div>
+        <div class="webcam4">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

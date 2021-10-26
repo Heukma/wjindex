@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ThinkBell</title>
+    <script lang="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="/simple-peer/simplepeer.min.js"></script>
+
+    <style>
+        #wrap {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+
+        #wrap .mainframe {
+            width: 1440px;
+            height: 1024px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -720px;
+            margin-top: -512px;
+            background: #FFFFFF;
+        }
+
+        #logo .logoimggroup {
+            position: absolute;
+            width: 30.62px;
+            height: 35px;
+            left: 73.99px;
+            top: 36px;
+        }
+
+        #logo .logotop {
+            position: absolute;
+            left: 5.14%;
+            right: 92.73%;
+            top: 3.77%;
+            bottom: 93.67%;
+            transform: rotate(-5deg);
+        }
+
+        #logo .logobottom {
+            position: absolute;
+            left: 13.22px;
+            top: 27.5px;
+
+
+            transform: rotate(-5.5deg);
+        }
+
+        #logo .logofont {
+            position: absolute;
+            width: 128px;
+            height: 39px;
+            left: 115px;
+            top: 32px;
+            font-family: Rosario;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 31.9033px;
+            line-height: 39px;
+
+            color: #000000;
+        }
+
+        #videos :nth-child(1) {
+            /*학생 얼굴칸*/
+            position: absolute;
+            object-fit: fill;
+            width: 450px;
+            height: 270px;
+            left: 74px;
+            top: 141px;
+            border: solid 4px #15C2B2;
+            /*#F78F1E; #FF5401;*/
+            border-radius: 5px;
+        }
+
+        #videos :nth-child(2) {
+            /*학생 얼굴칸*/
+            position: absolute;
+            object-fit: fill;
+            width: 450px;
+            height: 270px;
+            left: 758px;
+            top: 141px;
+            border: solid 4px #15C2B2;
+            border-radius: 5px;
+        }
+
+        #videos :nth-child(3) {
+            /*학생 얼굴칸*/
+            position: absolute;
+            object-fit: fill;
+            width: 450px;
+            height: 270px;
+            left: 74px;
+            top: 547px;
+            border: solid 4px #15C2B2;
+            border-radius: 5px;
+        }
+
+        #videos :nth-child(4) {
+            /*학생 얼굴칸*/
+            position: absolute;
+            object-fit: fill;
+            width: 450px;
+            height: 270px;
+            left: 758px;
+            top: 547px;
+            border: solid 4px #15C2B2;
+            border-radius: 5px;
+        }
+
+        .stdhead {
+            position: absolute;
+            width: 458px;
+            height: 50px;
+
+            background: #15C2B2;
+            border-radius: 6px 6px 0px 0px;
+        }
+
+        .stdhead .name {
+            position: absolute;
+            width: 75px;
+            height: 29px;
+            left: 18px;
+            top: 9px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 29px;
+            text-align: center;
+
+            color: #FFFFFF;
+        }
+
+        .agentmenu {
+            position: absolute;
+            width: 150px;
+            height: 325px;
+            background: #FCF1DF;
+            border-radius: 5px;
+        }
+
+        .agentmenu .firstoption {
+            position: absolute;
+            width: 96.57px;
+            height: 66.99px;
+            top: 16px;
+            left: 27px;
+            background: #FFFFFF;
+            border-radius: 9.52443px;
+        }
+
+        .agentmenu .secondoption {
+            position: absolute;
+            width: 96.57px;
+            height: 66.99px;
+            top: 92px;
+            left: 27px;
+            background: #FFFFFF;
+            border-radius: 9.52443px;
+        }
+
+        .agentmenu .thirdoption {
+            position: absolute;
+            width: 96.57px;
+            height: 66.99px;
+            top: 167px;
+            left: 27px;
+            background: #FFFFFF;
+            border-radius: 9.52443px;
+        }
+
+        .agentmenu .fourthoption {
+            position: absolute;
+            width: 96.57px;
+            height: 66.99px;
+            top: 243px;
+            left: 27px;
+            background: #FFFFFF;
+            border-radius: 9.52443px;
+        }
+
+        .chairoption {
+            /*자리비움 옵션*/
+            position: absolute;
+            top: 12px;
+            left: 28px;
+        }
+
+        .chairoptionquestion {
+            position: absolute;
+            top: 15px;
+            left: 44.5px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 1000;
+            font-size: 20px;
+            line-height: 23px;
+            color: #FFFFFF;
+        }
+
+        .secondoptionimg {
+            position: absolute;
+            top: 12.3px;
+            left: 30px;
+        }
+
+        .thirdoptionimg {
+            position: absolute;
+            top: 14.5px;
+            left: 30.3px;
+        }
+
+        .fourthoptionimg {
+            position: absolute;
+            top: 13.7px;
+            left: 27.7px;
+        }
+
+        .stdfooter {
+            position: absolute;
+            width: 609px;
+            height: 55px;
+
+            background: #FAFAFA;
+            border-radius: 5px;
+        }
+
+        .stdfooter .bar {
+            position: absolute;
+            top: 12.5px;
+            left: 452px;
+        }
+
+        .stdfooter .presentation {
+            position: absolute;
+            width: 40px;
+            height: 23px;
+            left: 493px;
+            top: 17px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 23px;
+
+            color: #EE7B33;
+        }
+
+        .stdfooter .modifypresentation {
+            position: absolute;
+            width: 35px;
+            height: 23px;
+            left: 540px;
+            top: 17px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 23px;
+
+            color: #EE7B33;
+        }
+
+        .fingeroptionstd1 {
+            position: absolute;
+            left: 91px;
+            top: 153px;
+        }
+
+        .fingeroptionstd2 {
+            position: absolute;
+            top: 152.5px;
+            left: 774.5px;
+        }
+
+        .fingeroptionstd3 {
+            position: absolute;
+            top: 558.5px;
+            left: 91px;
+        }
+
+        .fingeroptionstd4 {
+            position: absolute;
+            top: 558.5px;
+            left: 774.5px;
+        }
+
+        .footnav {
+            position: absolute;
+            width: 363px;
+            height: 51px;
+            left: 538px;
+            top: 915px;
+
+            background: #15C2B2;
+            border-radius: 100px;
+        }
+
+        .footnav .firstoption {
+            position: absolute;
+            top: 9px;
+            left: 20.28px;
+        }
+
+        .firstoptionword {
+            position: absolute;
+            width: 69px;
+            height: 18px;
+            left: 543px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+
+            color: #15C2B2;
+
+        }
+
+        .footnav .secondoption {
+            position: absolute;
+            top: 13px;
+            left: 100.73px;
+        }
+
+        .secondoptionword {
+            position: absolute;
+            width: 47px;
+            height: 18px;
+            left: 632px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+            /* identical to box height */
+            color: #15C2B2;
+        }
+
+        .footnav .thirdoption {
+            position: absolute;
+            top: 8px;
+            left: 176.5px;
+        }
+
+        .thirdoptionword {
+            position: absolute;
+            width: 47px;
+            height: 18px;
+            left: 705px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+
+            color: #15C2B2;
+        }
+
+        .footnav .fourthoption {
+            position: absolute;
+            top: 14.7px;
+            left: 246.8px;
+        }
+
+        .fourthoptionword {
+            position: absolute;
+            width: 32px;
+            height: 18px;
+            left: 783px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+            /* identical to box height */
+
+            color: #15C2B2;
+        }
+
+        .footnav .fifthoption {
+            position: absolute;
+            top: 9.5px;
+            left: 315.4px;
+        }
+
+        .fifthoptionword {
+            position: absolute;
+            width: 32px;
+            height: 18px;
+            left: 853px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+
+            color: #15C2B2;
+        }
+
+        /*
+      live말고 박수 ok 사인 넣기
+      자세불량, 졸음감지, 발화저조 말풍선 넣기
+
+    */
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="mainframe">
+
+            <div id="videos">
+                <video id="localVideo" class="vid" autoplay muted></video>
+            </div>
+            <div id="logo">
+                <div class="logoimggroup">
+                    <img class="logobottom" src="./vector/logobottom.svg">
+                    <img class="logotop" src="./vector/logotop.svg">
+                </div>
+                <div class="logofont">
+                    ThinkBell
+                </div>
+            </div>
+
+            <div class="std1">
+                <div class="stdhead" style="left: 74px;top: 94px;">
+                    <!--학생마다 수정-->
+                    <div class="name" style="text-align:left">
+                        나
+                        <!--학생마다 수정-->
+                    </div>
+                </div>
+                <!--학생마다 수정-->
+                <img class="fingeroptionstd1" src="./vector/live.png">
+
+                <div class="agentmenu" style="left: 532px; top: 94px;">
+                    <!--학생마다 수정-->
+                    <div class="firstoption">
+                        <img class="chairoption" src="./vector/chair.svg">
+                        <!--#F6B220-->
+                        <img class="chairoption" src="./vector/chaircolor.svg" style="display:none;">
+                        <div class="chairoptionquestion">?</div>
+                    </div>
+                    <div class="secondoption">
+                        <img class="secondoptionimg" src="./vector/second.png" style="display: none;">
+                        <img class="secondoptionimg" src="./vector/secondcolor.png">
+                    </div>
+                    <div class="thirdoption">
+                        <img class="thirdoptionimg" src="./vector/third.png">
+                        <img class="thirdoptionimg" src="./vector/thirdcolor.png" style="display: none;">
+                    </div>
+                    <div class="fourthoption">
+                        <img class="thirdoptionimg" src="./vector/fourth.png">
+                        <img class="thirdoptionimg" src="./vector/fourthcolor.png" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="stdfooter" style="left: 74px;top: 419px;">
+                    <!--학생마다 수정-->
+                    <div class="bar">
+                        <img src="./vector/bar.png">
+                    </div>
+                    <div class="presentation">
+                        발표
+                    </div>
+                    <div class="modifypresentation">
+                        2회
+                    </div>
+                </div>
+            </div>
+
+            <div class="std2">
+                <div class="stdhead" style="left: 758px;top: 94px;">
+                    <!--학생마다 수정-->
+                    <div class="name">
+                        이시우
+                        <!--학생마다 수정-->
+                    </div>
+                </div>
+                <!--학생마다 수정-->
+                <img class="fingeroptionstd2" src="./vector/fingeroptionraisehand.png">
+                <img class="fingeroptionstd2" src="./vector/fingeroptionok.png">
+
+                <div class="agentmenu" style="left: 1216px; top: 94px;">
+                    <!--학생마다 수정-->
+                    <div class="firstoption">
+                        <img class="chairoption" src="./vector/chair.svg">
+                        <!--#F6B220-->
+                        <img class="chairoption" src="./vector/chaircolor.svg" style="display:none;">
+                        <div class="chairoptionquestion">?</div>
+                    </div>
+                    <div class="secondoption">
+                        <img class="secondoptionimg" src="./vector/second.png">
+                        <img class="secondoptionimg" src="./vector/secondcolor.png" style="display: none;">
+                    </div>
+                    <div class="thirdoption">
+                        <img class="thirdoptionimg" src="./vector/third.png" style="display: none;">
+                        <img class="thirdoptionimg" src="./vector/thirdcolor.png">
+                    </div>
+                    <div class="fourthoption">
+                        <img class="thirdoptionimg" src="./vector/fourth.png">
+                        <img class="thirdoptionimg" src="./vector/fourthcolor.png" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="stdfooter" style="left: 758px;top: 419px;">
+                    <!--학생마다 수정-->
+                    <div class="bar">
+                        <img src="./vector/bar.png">
+                    </div>
+                    <div class="presentation">
+                        발표
+                    </div>
+                    <div class="modifypresentation">
+                        1회
+                    </div>
+                </div>
+            </div>
+
+            <div class="std3">
+                <div class="stdhead" style="left: 74px;top: 500px;">
+                    <!--학생마다 수정-->
+                    <div class="name">
+                        이관우
+                        <!--학생마다 수정-->
+                    </div>
+                </div>
+                <!--학생마다 수정-->
+                <img class="fingeroptionstd3" src="./vector/fingeroptionraisehand.png">
+                <img class="fingeroptionstd3" src="./vector/fingeroptionok.png">
+
+                <div class="agentmenu" style="left: 532px; top: 500px;">
+                    <!--학생마다 수정-->
+                    <div class="firstoption">
+                        <img class="chairoption" src="./vector/chair.svg">
+                        <!--#F6B220-->
+                        <img class="chairoption" src="./vector/chaircolor.svg" style="display:none;">
+                        <div class="chairoptionquestion">?</div>
+                    </div>
+                    <div class="secondoption">
+                        <img class="secondoptionimg" src="./vector/second.png">
+                        <img class="secondoptionimg" src="./vector/secondcolor.png" style="display: none;">
+                    </div>
+                    <div class="thirdoption">
+                        <img class="thirdoptionimg" src="./vector/third.png">
+                        <img class="thirdoptionimg" src="./vector/thirdcolor.png" style="display: none;">
+                    </div>
+                    <div class="fourthoption">
+                        <img class="thirdoptionimg" src="./vector/fourth.png" style="display: none;">
+                        <img class="thirdoptionimg" src="./vector/fourthcolor.png">
+                    </div>
+                </div>
+
+                <div class="stdfooter" style="left: 74px;top: 825px;">
+                    <!--학생마다 수정-->
+                    <div class="bar">
+                        <img src="./vector/bar.png">
+                    </div>
+                    <div class="presentation">
+                        발표
+                    </div>
+                    <div class="modifypresentation">
+                        1회
+                    </div>
+                </div>
+            </div>
+
+            <div class="std4">
+                <div class="stdhead" style="left: 758px;top: 500px;">
+                    <!--학생마다 수정-->
+                    <div class="name">
+                        박성완
+                        <!--학생마다 수정-->
+                    </div>
+                </div>
+                <!-- <img class="std" src="./vector/std1.png" style="left: 758px;top: 547px;"> -->
+                <!--학생마다 수정-->
+                <img class="fingeroptionstd4" src="./vector/fingeroptionraisehand.png">
+                <img class="fingeroptionstd4" src="./vector/fingeroptionok.png">
+
+                <div class="agentmenu" style="left: 1216px; top: 500px;">
+                    <!--학생마다 수정-->
+                    <div class="firstoption">
+                        <img class="chairoption" src="./vector/chair.svg">
+                        <!--#F6B220-->
+                        <img class="chairoption" src="./vector/chaircolor.svg" style="display:none;">
+                        <div class="chairoptionquestion">?</div>
+                    </div>
+                    <div class="secondoption">
+                        <img class="secondoptionimg" src="./vector/second.png">
+                        <img class="secondoptionimg" src="./vector/secondcolor.png" style="display: none;">
+                    </div>
+                    <div class="thirdoption">
+                        <img class="thirdoptionimg" src="./vector/third.png">
+                        <img class="thirdoptionimg" src="./vector/thirdcolor.png" style="display: none;">
+                    </div>
+                    <div class="fourthoption">
+                        <img class="thirdoptionimg" src="./vector/fourth.png">
+                        <img class="thirdoptionimg" src="./vector/fourthcolor.png" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="stdfooter" style="left: 758px;top: 825px;">
+                    <!--학생마다 수정-->
+                    <div class="bar">
+                        <img src="./vector/bar.png">
+                    </div>
+                    <div class="presentation">
+                        발표
+                    </div>
+                    <div class="modifypresentation">
+                        1회
+                    </div>
+                </div>
+            </div>
+
+            <div class="footnav">
+                <div class="firstoption">
+                    <img src="./vector/footnavfirst.png">
+                </div>
+                <div class="secondoption">
+                    <img src="./vector/footnavsecond.png">
+                </div>
+                <div class="thirdoption">
+                    <img src="./vector/footnavthird.png">
+                </div>
+                <div class="fourthoption">
+                    <img src="./vector/footnavfourth.png">
+                </div>
+                <div class="fifthoption">
+                    <img src="./vector/footnavfifth.png">
+                </div>
+            </div>
+            <div class="firstoptionword">
+                다시 시작
+            </div>
+            <div class="secondoptionword">
+                카메라
+            </div>
+            <div class="thirdoptionword">
+                마이크
+            </div>
+            <div class="fourthoptionword">
+                로그
+            </div>
+            <div class="fifthoptionword">
+                알람
+            </div>
+
+        </div>
+    </div>
+</body>
+<footer>
+    <script src='/js/main.js' lang="text/javascript"></script>
+    <script id="objDetect" src='/js/objDetect.js' data-source="localVideo" data-mirror="true" data-uploadWidth="1280"
+        data-scoreThreshold="0.40"></script>
+</footer>
+
+</html>

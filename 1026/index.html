@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ThinkBell</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='scoring_circular_bar.css') }}" />
+    <style>
+        #wrap {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+
+        #wrap .mainframe {
+            width: 1440px;
+            height: 1024px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -720px;
+            margin-top: -512px;
+            background: #FFFFFF;
+        }
+
+        #logo .logoimggroup {
+            position: absolute;
+            width: 30.62px;
+            height: 35px;
+            left: 73.99px;
+            top: 36px;
+        }
+
+        #logo .logotop {
+            position: absolute;
+            left: 5.14%;
+            right: 92.73%;
+            top: 3.77%;
+            bottom: 93.67%;
+            transform: rotate(-5deg);
+        }
+
+        #logo .logobottom {
+            position: absolute;
+            left: 13.22px;
+            top: 27.5px;
+
+
+            transform: rotate(-5.5deg);
+        }
+
+        #logo .logofont {
+            position: absolute;
+            width: 128px;
+            height: 39px;
+            left: 115px;
+            top: 32px;
+            font-family: Rosario;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 31.9033px;
+            line-height: 39px;
+
+            color: #000000;
+        }
+
+        #videos :nth-child(1) {
+            /*학생 얼굴칸*/
+            position: absolute;
+            object-fit: fill;
+            width: 450px;
+            height: 270px;
+            left: 76px;
+            top: 141px;
+
+            /*border: solid 4px #15C2B2; #F78F1E; #FF5401;*/
+            border-radius: 5px;
+        }
+
+        #videos :nth-child(2) {
+            /*학생 얼굴칸*/
+            position: absolute;
+            object-fit: fill;
+            width: 450px;
+            height: 270px;
+            left: 760px;
+            top: 141px;
+
+            border-radius: 5px;
+        }
+
+        #videos :nth-child(3) {
+            /*학생 얼굴칸*/
+            position: absolute;
+            object-fit: fill;
+            width: 450px;
+            height: 270px;
+            left: 76px;
+            top: 547px;
+
+            border-radius: 5px;
+        }
+
+        #videos :nth-child(4) {
+            /*학생 얼굴칸*/
+            position: absolute;
+            object-fit: fill;
+            width: 450px;
+            height: 270px;
+            left: 760px;
+            top: 547px;
+
+            border-radius: 5px;
+        }
+
+        .stdhead {
+            position: absolute;
+            width: 458px;
+            height: 50px;
+
+            background: #40CC30;
+            border-radius: 6px 6px 0px 0px;
+        }
+
+        .stdhead .name {
+            position: absolute;
+            width: 75px;
+            height: 29px;
+            left: 18px;
+            top: 9px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 29px;
+            text-align: center;
+
+            color: #FFFFFF;
+        }
+
+        .agentmenu {
+            position: absolute;
+            width: 150px;
+            height: 325px;
+            background: #FCF1DF;
+            border-radius: 5px;
+        }
+
+        .agentmenu .firstoption {
+            position: absolute;
+            width: 96.57px;
+            height: 66.99px;
+            top: 16px;
+            left: 27px;
+            background: #FFFFFF;
+            border-radius: 9.52443px;
+        }
+
+        .agentmenu .secondoption {
+            position: absolute;
+            width: 96.57px;
+            height: 66.99px;
+            top: 92px;
+            left: 27px;
+            background: #FFFFFF;
+            border-radius: 9.52443px;
+        }
+
+        .agentmenu .thirdoption {
+            position: absolute;
+            width: 96.57px;
+            height: 66.99px;
+            top: 167px;
+            left: 27px;
+            background: #FFFFFF;
+            border-radius: 9.52443px;
+        }
+
+        .agentmenu .fourthoption {
+            position: absolute;
+            width: 96.57px;
+            height: 66.99px;
+            top: 243px;
+            left: 27px;
+            background: #FFFFFF;
+            border-radius: 9.52443px;
+        }
+
+        .chairoption {
+            /*자리비움 옵션*/
+            position: absolute;
+            top: 12px;
+            left: 28px;
+        }
+
+        .chairoptionquestion {
+            position: absolute;
+            top: 15px;
+            left: 44.5px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 1000;
+            font-size: 20px;
+            line-height: 23px;
+            color: #FFFFFF;
+        }
+
+        .secondoptionimg {
+            position: absolute;
+            top: 12.3px;
+            left: 29px;
+        }
+
+        .thirdoptionimg {
+            position: absolute;
+            top: 14.5px;
+            left: 30.3px;
+        }
+
+        .fourthoptionimg {
+            position: absolute;
+            top: 13.7px;
+            left: 27.7px;
+        }
+
+        .stdfooter {
+            position: absolute;
+            width: 609px;
+            height: 55px;
+
+            background: #FAFAFA;
+            border-radius: 5px;
+        }
+
+        .stdfooter .bar {
+            position: absolute;
+            top: 12.5px;
+            left: 452px;
+        }
+
+        .stdfooter .presentation {
+            position: absolute;
+            width: 40px;
+            height: 23px;
+            left: 493px;
+            top: 17px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 23px;
+
+            color: #EE7B33;
+        }
+
+        .stdfooter .modifypresentationnum {
+            position: absolute;
+            width: 35px;
+            height: 23px;
+            left: 540px;
+            top: 17px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 23px;
+
+            color: #EE7B33;
+        }
+
+        .stdfooter .modifypresentation {
+            position: absolute;
+            width: 35px;
+            height: 23px;
+            left: 560px;
+            top: 17px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 23px;
+
+            color: #EE7B33;
+        }
+
+        .fingeroptionstd1 {
+            position: absolute;
+            left: 91px;
+            top: 153px;
+        }
+
+        .fingeroptionstd2 {
+            position: absolute;
+            top: 152.5px;
+            left: 774.5px;
+        }
+
+        .fingeroptionstd3 {
+            position: absolute;
+            top: 558.5px;
+            left: 91px;
+        }
+
+        .fingeroptionstd4 {
+            position: absolute;
+            top: 558.5px;
+            left: 774.5px;
+        }
+
+        .footnav {
+            position: absolute;
+            width: 363px;
+            height: 51px;
+            left: 538px;
+            top: 915px;
+
+            background: #15C2B2;
+            border-radius: 100px;
+        }
+
+        .footnav .firstoption {
+            position: absolute;
+            top: 9px;
+            left: 20.28px;
+        }
+
+        .firstoptionword {
+            position: absolute;
+            width: 69px;
+            height: 18px;
+            left: 543px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+
+            color: #15C2B2;
+
+        }
+
+        .footnav .secondoption {
+            position: absolute;
+            top: 13px;
+            left: 100.73px;
+        }
+
+        .secondoptionword {
+            position: absolute;
+            width: 47px;
+            height: 18px;
+            left: 632px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+            /* identical to box height */
+            color: #15C2B2;
+        }
+
+        .footnav .thirdoption {
+            position: absolute;
+            top: 8px;
+            left: 176.5px;
+        }
+
+        .thirdoptionword {
+            position: absolute;
+            width: 47px;
+            height: 18px;
+            left: 705px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+
+            color: #15C2B2;
+        }
+
+        .footnav .fourthoption {
+            position: absolute;
+            top: 14.7px;
+            left: 246.8px;
+        }
+
+        .fourthoptionword {
+            position: absolute;
+            width: 32px;
+            height: 18px;
+            left: 783px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+            /* identical to box height */
+
+            color: #15C2B2;
+        }
+
+        .footnav .fifthoption {
+            position: absolute;
+            top: 9.5px;
+            left: 315.4px;
+        }
+
+        .fifthoptionword {
+            position: absolute;
+            width: 32px;
+            height: 18px;
+            left: 853px;
+            top: 976px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+
+            color: #15C2B2;
+        }
+
+        .std1_modal {
+            position: absolute;
+            z-index: 10;
+            width: 199px;
+            height: 132px;
+            top: 14%;
+            left: 23%;
+            background: #ffffff;
+            border: 3px solid #000000;
+            box-sizing: border-box;
+            border-radius: 15px;
+        }
+
+        .std2_modal {
+            position: absolute;
+            z-index: 10;
+            width: 199px;
+            height: 132px;
+            top: 14%;
+            left: 70.5%;
+            background: #ffffff;
+            border: 3px solid #000000;
+            box-sizing: border-box;
+            border-radius: 15px;
+          }
+
+          .std3_modal {
+            position: absolute;
+            z-index: 10;
+            width: 199px;
+            height: 132px;
+            top: 53.5%;
+            left: 23%;
+            background: #ffffff;
+            border: 3px solid #000000;
+            box-sizing: border-box;
+            border-radius: 15px;
+          }
+
+          .std4_modal {
+            position: absolute;
+            z-index: 10;
+            width: 199px;
+            height: 132px;
+            top: 53.5%;
+            left: 70.5%;
+            background: #ffffff;
+            border: 3px solid #000000;
+            box-sizing: border-box;
+            border-radius: 15px;
+          }
+
+        .explain_to_teacher {
+            position: absolute;
+            z-index: 20;
+            width: 42px;
+            height: 42px;
+            left: 151px;
+            top: 1px;
+
+            background: #ffffff;
+            border: 2px solid #ff2d2d;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 14.5px;
+            line-height: 19px;
+
+            color: #ff4242;
+          }
+          .std_modal_bomb_picture {
+            position: absolute;
+            width: 71px;
+            height: 91px;
+            left: 64px;
+            top: 11px;
+            cursor: pointer;
+          }
+          .std_modal_bomb_text {
+            position: absolute;
+            width: 152px;
+            height: 22px;
+            left: 24px;
+            top: 102px;
+
+            background: #ffffff;
+            border: 2px solid #7D4EDA;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 8px;
+            line-height: 16px;
+            color: #e80f0f;
+          }
+          .std_modal_thief {
+            position: absolute;
+            width: 176px;
+            height: 61px;
+            left: 12px;
+            top: 27px;
+            cursor: pointer;
+          }
+
+          .std_modal_thief_text {
+            position: absolute;
+            width: 174px;
+            height: 22px;
+            left: 14px;
+            top: 102px;
+
+            background: #ffffff;
+            border: 2px solid #F6B220;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 10.5px;
+            line-height: 16px;
+            color: #4d4640;
+          }
+          .std_modal_speech_text {
+            position: absolute;
+            z-index: 11;
+            width: 155px;
+            height: 22px;
+            left: 24px;
+            top: 102px;
+
+            background: #ffffff;
+            border: 2px solid #EE7B33;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 10.5px;
+            line-height: 16px;
+            color: #EE7B33;
+          }
+          .std_modal_speech {
+            position: absolute;
+            width: 100%;
+            border-radius: 15px;
+          }
+          .std_modal_posture_text {
+             position: absolute;
+             z-index: 11;
+             width: 178px;
+             height: 22px;
+             left: 10px;
+             top: 102px;
+
+             background: #ffffff;
+             border: 2px solid #4B99D5;
+             box-sizing: border-box;
+             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+             border-radius: 15px;
+
+             font-family: Roboto;
+             font-style: normal;
+             font-weight: bold;
+             font-size: 10.5px;
+             line-height: 16px;
+             color: #4B99D5;
+           }
+           .std_modal_alarm_text {
+              position: absolute;
+              width: 170px;
+              height: 22px;
+              left: 14px;
+              top: 102px;
+
+              background: #ffffff;
+              border: 2px solid #000000;
+              box-sizing: border-box;
+              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              border-radius: 15px;
+
+              font-family: Roboto;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 10.5px;
+              line-height: 16px;
+              color: #f0064f;
+            }
+
+          .loading {
+            position: fixed;
+            background: white;
+            z-index: 400;
+            width: 100%;
+            height: 100%;
+          }
+          .finish {
+            position: fixed;
+            display: none;
+            z-index: 20;
+            top: 2%;
+            left: 37%;
+            width: 200fx;
+            height: 100fx;
+            background-color: skyblue;
+            font-family: "Jeju Gothic", sans-serif;
+            font-weight: bold;
+            padding: 20px;
+          }
+    </style>
+</head>
+<!--
+  옆에 버튼 반응하기
+  모달창 반응하기
+  위에 몰입도 색깔 반응하기
+
+-->
+<body>
+    <div id="finishAlarm" class="finish">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-stop-circle-fill"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.5 5A1.5 1.5 0 0 0 5 6.5v3A1.5 1.5 0 0 0 6.5 11h3A1.5 1.5 0 0 0 11 9.5v-3A1.5 1.5 0 0 0 9.5 5h-3z"
+      />
+    </svg>
+
+    영상이 종료되었습니다. 새로고침 버튼을 눌러 다시 시작하세요.
+  </div>
+    <div id="wrap">
+      <!--이미지, 학생얼굴 뜨기까지 흰화면으로 로딩-->
+      <div id="loading" class="loading">
+        <script>
+        const loadScreen = document.getElementById("loading");
+        const clickLoad = document.getElementById("loading");
+        clickLoad.addEventListener("click", (e) => {
+          loadScreen.style.display = "none";
+        });
+
+        setTimeout(function () {
+          document.getElementById("loading").style.display = "none";
+        }, 5000);
+        </script>
+      </div>
+
+        <div class="mainframe">
+
+          <div class="std1__modal">
+            <div id="std1_modal3" class="std1_modal" style="display: none;border: 3px solid #7D4EDA">
+              <div class="explain_to_teacher">
+                <center>졸음 방지</center>
+              </div>
+              <img id="std1_closemodal1" class="std_modal_bomb_picture"
+                src="https://drive.google.com/uc?id=1GuZWaZNCnpw0KvtlMun6EQ2Zkq0b3p_8" />
+              <div class="std_modal_bomb_text">
+                &nbsp;&nbsp;&nbsp;폭탄이 터지는걸 막아주세요!
+              </div>
+            </div>
+
+            <div id="std1_modal1" class="std1_modal" style="display: none; border: 3px solid #F6B220">
+              <div class="explain_to_teacher">
+                <center>자리 비움</center>
+              </div>
+              <img id="std1_closemodal2" class="std_modal_thief"
+                src="https://drive.google.com/uc?id=1DFZf5XYsZZsH3c-tFVF0SUzHg8IaZLIw" />
+              <div class="std_modal_thief_text">도둑을 클릭해 보물을 지켜주세요!</div>
+            </div>
+
+            <div id="std1_modal4" class="std1_modal" style="display: none; border: 3px solid #EE7B33">
+              <div class="std_modal_speech_text">
+                &nbsp;&nbsp;&nbsp;적극적으로 발표해 보아요!
+              </div>
+              <div class="explain_to_teacher">
+                <center>발화 독려</center>
+              </div>
+              <img id="std1_closemodal3" class="std_modal_speech"
+                src="https://drive.google.com/uc?id=1AkaFtPofzu35z03enhZKZ6Sg4qk2EnLX" />
+            </div>
+            <div id="std1_modal2" class="std1_modal" style="display: none; border: 3px solid #4B99D5">
+              <div class="std_modal_posture_text">
+                &nbsp;바른 자세로 수업에 집중해 보아요!
+              </div>
+              <div class="explain_to_teacher">
+                <center>자세 교정</center>
+              </div>
+              <img id="std1_closemodal4" class="std_modal_speech"
+                src="http://drive.google.com/uc?export=view&id=1LWpNJ7eSiKre3P7Y5aPANmNZqnOxJ4qU" />
+            </div>
+            <div id="std1_modal5" class="std1_modal" style="display:none">
+              <img id="std1_closemodal5" style="width: 100%; border-radius: 15px; cursor:pointer"
+                src="https://drive.google.com/uc?id=1Eva5Gsm7usV4DJlMKDPQJk4NJNT31Dm_" />
+              <div class="std_modal_alarm_text">
+                &nbsp;&nbsp;주목! 선생님에게 집중해 보아요!
+              </div>
+            </div>
+          </div>
+
+          <div class="std2__modal">
+            <div id="std2_modal3" class="std2_modal" style="display: none;border: 3px solid #7D4EDA">
+              <div class="explain_to_teacher">
+                <center>졸음 방지</center>
+              </div>
+              <img id="close_bomb_std2" class="std_modal_bomb_picture"
+                src="https://drive.google.com/uc?id=1GuZWaZNCnpw0KvtlMun6EQ2Zkq0b3p_8" />
+              <div class="std_modal_bomb_text">
+                &nbsp;&nbsp;&nbsp;폭탄이 터지는걸 막아주세요!
+              </div>
+            </div>
+
+            <div id="std2_modal1" class="std2_modal" style="display: none; border: 3px solid #F6B220">
+              <div class="explain_to_teacher">
+                <center>자리 비움</center>
+              </div>
+              <img id="colse_thief_std2" class="std_modal_thief"
+                src="https://drive.google.com/uc?id=1DFZf5XYsZZsH3c-tFVF0SUzHg8IaZLIw" />
+              <div class="std_modal_thief_text">도둑을 클릭해 보물을 지켜주세요!</div>
+            </div>
+
+            <div id="std2_modal4" class="std2_modal" style="display: none; border: 3px solid #EE7B33">
+              <div class="std_modal_speech_text">
+                &nbsp;&nbsp;&nbsp;적극적으로 발표해 보아요!
+              </div>
+              <div class="explain_to_teacher">
+                <center>발화 독려</center>
+              </div>
+              <img id="close_speech_stu1" class="std_modal_speech"
+                src="https://drive.google.com/uc?id=1AkaFtPofzu35z03enhZKZ6Sg4qk2EnLX" />
+            </div>
+            <div id="std2_modal2" class="std2_modal" style="display: none; border: 3px solid #4B99D5">
+              <div class="std_modal_posture_text">
+                &nbsp;바른 자세로 수업에 집중해 보아요!
+              </div>
+              <div class="explain_to_teacher">
+                <center>자세 교정</center>
+              </div>
+              <img id="close_posture_std2" class="std_modal_speech"
+                src="http://drive.google.com/uc?export=view&id=1LWpNJ7eSiKre3P7Y5aPANmNZqnOxJ4qU" />
+            </div>
+            <div id="std2_modal5" class="std2_modal" style="display: none">
+              <img id="close_alarm_stu2" style="width: 100%; border-radius: 15px"
+                src="https://drive.google.com/uc?id=1Eva5Gsm7usV4DJlMKDPQJk4NJNT31Dm_" />
+              <div class="std_modal_alarm_text">
+                &nbsp;&nbsp;주목! 선생님에게 집중해 보아요!
+              </div>
+            </div>
+          </div>
+
+          <div class="std3__modal">
+            <div id="std3_modal3" class="std3_modal" style="display: none;border: 3px solid #7D4EDA">
+              <div class="explain_to_teacher">
+                <center>졸음 방지</center>
+              </div>
+              <img id="close_bomb_std3" class="std_modal_bomb_picture"
+                src="https://drive.google.com/uc?id=1GuZWaZNCnpw0KvtlMun6EQ2Zkq0b3p_8" />
+              <div class="std_modal_bomb_text">
+                &nbsp;&nbsp;&nbsp;폭탄이 터지는걸 막아주세요!
+              </div>
+            </div>
+
+            <div id="std3_modal1" class="std3_modal" style="display: none; border: 3px solid #F6B220">
+              <div class="explain_to_teacher">
+                <center>자리 비움</center>
+              </div>
+              <img id="colse_thief_std3" class="std_modal_thief"
+                src="https://drive.google.com/uc?id=1DFZf5XYsZZsH3c-tFVF0SUzHg8IaZLIw" />
+              <div class="std_modal_thief_text">도둑을 클릭해 보물을 지켜주세요!</div>
+            </div>
+
+            <div id="std3_modal4" class="std3_modal" style="display: none; border: 3px solid #EE7B33">
+              <div class="std_modal_speech_text">
+                &nbsp;&nbsp;&nbsp;적극적으로 발표해 보아요!
+              </div>
+              <div class="explain_to_teacher">
+                <center>발화 독려</center>
+              </div>
+              <img id="close_speech_stu1" class="std_modal_speech"
+                src="https://drive.google.com/uc?id=1AkaFtPofzu35z03enhZKZ6Sg4qk2EnLX" />
+            </div>
+            <div id="std3_modal2" class="std3_modal" style="display: none; border: 3px solid #4B99D5">
+              <div class="std_modal_posture_text">
+                &nbsp;바른 자세로 수업에 집중해 보아요!
+              </div>
+              <div class="explain_to_teacher">
+                <center>자세 교정</center>
+              </div>
+              <img id="close_posture_std3" class="std_modal_speech"
+                src="http://drive.google.com/uc?export=view&id=1LWpNJ7eSiKre3P7Y5aPANmNZqnOxJ4qU" />
+            </div>
+            <div id="std3_modal5" class="std3_modal" style="display: none">
+              <img id="close_alarm_stu3" style="width: 100%; border-radius: 15px"
+                src="https://drive.google.com/uc?id=1Eva5Gsm7usV4DJlMKDPQJk4NJNT31Dm_" />
+              <div class="std_modal_alarm_text">
+                &nbsp;&nbsp;주목! 선생님에게 집중해 보아요!
+              </div>
+            </div>
+          </div>
+
+          <div class="std4__modal">
+            <div id="std4_modal3" class="std4_modal" style="display: none;border: 3px solid #7D4EDA">
+              <div class="explain_to_teacher">
+                <center>졸음 방지</center>
+              </div>
+              <img id="close_bomb_std4" class="std_modal_bomb_picture"
+                src="https://drive.google.com/uc?id=1GuZWaZNCnpw0KvtlMun6EQ2Zkq0b3p_8" />
+              <div class="std_modal_bomb_text">
+                &nbsp;&nbsp;&nbsp;폭탄이 터지는걸 막아주세요!
+              </div>
+            </div>
+
+            <div id="std4_modal1" class="std4_modal" style="display: none; border: 3px solid #F6B220">
+              <div class="explain_to_teacher">
+                <center>자리 비움</center>
+              </div>
+              <img id="colse_thief_std4" class="std_modal_thief"
+                src="https://drive.google.com/uc?id=1DFZf5XYsZZsH3c-tFVF0SUzHg8IaZLIw" />
+              <div class="std_modal_thief_text">도둑을 클릭해 보물을 지켜주세요!</div>
+            </div>
+
+            <div id="std4_modal4" class="std4_modal" style="display: none; border: 3px solid #EE7B33">
+              <div class="std_modal_speech_text">
+                &nbsp;&nbsp;&nbsp;적극적으로 발표해 보아요!
+              </div>
+              <div class="explain_to_teacher">
+                <center>발화 독려</center>
+              </div>
+              <img id="close_speech_stu1" class="std_modal_speech"
+                src="https://drive.google.com/uc?id=1AkaFtPofzu35z03enhZKZ6Sg4qk2EnLX" />
+            </div>
+            <div id="std4_modal2" class="std4_modal" style="display: none; border: 3px solid #4B99D5">
+              <div class="std_modal_posture_text">
+                &nbsp;바른 자세로 수업에 집중해 보아요!
+              </div>
+              <div class="explain_to_teacher">
+                <center>자세 교정</center>
+              </div>
+              <img id="close_posture_std4" class="std_modal_speech"
+                src="http://drive.google.com/uc?export=view&id=1LWpNJ7eSiKre3P7Y5aPANmNZqnOxJ4qU" />
+            </div>
+            <div id="std4_modal5" class="std4_modal" style="display: none">
+              <img id="close_alarm_stu4" style="width: 100%; border-radius: 15px"
+                src="https://drive.google.com/uc?id=1Eva5Gsm7usV4DJlMKDPQJk4NJNT31Dm_" />
+              <div class="std_modal_alarm_text">
+                &nbsp;&nbsp;주목! 선생님에게 집중해 보아요!
+              </div>
+            </div>
+          </div>
+
+
+            <div id="videos">
+                <img src="/video_feed/1"/>
+                <img src="/video_feed/2"/>
+                <img src="/video_feed/3"/>
+                <img src="/video_feed/4"/>
+            </div>
+
+            <div id="logo">
+                <div class="logoimggroup">
+                    <img class="logobottom" src="http://drive.google.com/uc?export=view&id=1ohxFLlpWWAd3g-FlzzHxYy28HsZtnGB0">
+                    <img class="logotop" src="http://drive.google.com/uc?export=view&id=12pG-hyVkXlCb02xCUoqWg1a9sE6mw1YQ">
+                </div>
+                <div class="logofont">
+                    ThinkBell
+                </div>
+            </div>
+
+            <div class="std1">
+                <div id ="std1head" class="stdhead" style="left: 74px;top: 94px;">
+                    <!--학생마다 수정-->
+                    <div class="name" style="text-align:left">
+                        나
+                        <!--학생마다 수정-->
+                    </div>
+                </div>
+                <!--학생마다 수정-->
+                <img class="fingeroptionstd1" src="http://drive.google.com/uc?export=view&id=1pGPnqQvRj44xpaG-HZk-eg-XuN_PPuQ4">
+
+                <div class="agentmenu" style="left: 532px; top: 94px;">
+                    <!--학생마다 수정-->
+                    <div class="firstoption">
+                        <img class="chairoption" src="http://drive.google.com/uc?export=view&id=1XT_yLEEHqpp5Fh4NNIxz-i76leZ2uGFH">
+                        <!--#F6B220-->
+                        <img id ="stu1_img1" class="chairoption" src="http://drive.google.com/uc?export=view&id=135eO6qs3nXH37rddtDX1LqUvpIPijY5p" style="display:none;">
+                        <div class="chairoptionquestion">?</div>
+                    </div>
+                    <div class="secondoption">
+                        <img class="secondoptionimg" src="http://drive.google.com/uc?export=view&id=1O068bcqZo2LDE3aX0GWw7pAFX2F1AIee" >
+                        <img id ="stu1_img2" class="secondoptionimg" src="http://drive.google.com/uc?export=view&id=1wMXdd684Wm_HaJAxHc7_f74zYo60_kl7" style="display: none;">
+                    </div>
+                    <div class="thirdoption">
+                        <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1dQdeOnZE51xhFQg7J9NEP6oqyVSHaFil">
+                        <img id ="stu1_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1UJfqvWynmXu8XS9ClnoCnizqLXeuJpT9" style="display: none;">
+                    </div>
+                    <div class="fourthoption">
+                        <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
+                        <img id ="stu1_img4" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="stdfooter" style="left: 74px;top: 419px;">
+                    <!--학생마다 수정-->
+                    <div class="bar">
+                        <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
+                    </div>
+                    <div class="presentation">
+                        발표
+                    </div>
+                    <div id="prenum1" class="modifypresentationnum">
+                        0
+                    </div>
+                    <div class="modifypresentation">
+                        회
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="std2">
+                <div id ="std2head" class="stdhead" style="left: 758px;top: 94px;">
+                    <!--학생마다 수정-->
+                    <div class="name">
+                        이시우
+                        <!--학생마다 수정-->
+                    </div>
+                </div>
+                <!--학생마다 수정-->
+                <img class="fingeroptionstd2" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
+                <img class="fingeroptionstd2" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
+
+                <div class="agentmenu" style="left: 1216px; top: 94px;">
+                    <!--학생마다 수정-->
+                    <div class="firstoption">
+                        <img class="chairoption" src="http://drive.google.com/uc?export=view&id=1XT_yLEEHqpp5Fh4NNIxz-i76leZ2uGFH">
+                        <!--#F6B220-->
+                        <img id ="stu2_img1" class="chairoption" src="http://drive.google.com/uc?export=view&id=135eO6qs3nXH37rddtDX1LqUvpIPijY5p" style="display:none;">
+                        <div class="chairoptionquestion">?</div>
+                    </div>
+                    <div class="secondoption">
+                        <img class="secondoptionimg" src="http://drive.google.com/uc?export=view&id=1O068bcqZo2LDE3aX0GWw7pAFX2F1AIee">
+                        <img id ="stu2_img2" class="secondoptionimg" src="http://drive.google.com/uc?export=view&id=1wMXdd684Wm_HaJAxHc7_f74zYo60_kl7" style="display: none;">
+                    </div>
+                    <div class="thirdoption">
+                        <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1dQdeOnZE51xhFQg7J9NEP6oqyVSHaFil" >
+                        <img id ="stu2_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1UJfqvWynmXu8XS9ClnoCnizqLXeuJpT9" style="display: none;">
+                    </div>
+                    <div class="fourthoption">
+                        <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
+                        <img id ="stu2_img4" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="stdfooter" style="left: 758px;top: 419px;">
+                    <!--학생마다 수정-->
+                    <div class="bar">
+                        <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
+                    </div>
+                    <div class="presentation">
+                        발표
+                    </div>
+                    <div id="prenum2" class="modifypresentationnum">
+                        0
+                    </div>
+                    <div class="modifypresentation">
+                        회
+                    </div>
+                </div>
+            </div>
+
+            <div class="std3">
+                <div id ="std3head" class="stdhead" style="left: 74px;top: 500px;">
+                    <!--학생마다 수정-->
+                    <div class="name">
+                        이관우
+                        <!--학생마다 수정-->
+                    </div>
+                </div>
+                <!--학생마다 수정-->
+                <img class="fingeroptionstd3" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
+                <img class="fingeroptionstd3" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
+
+                <div class="agentmenu" style="left: 532px; top: 500px;">
+                    <!--학생마다 수정-->
+                    <div class="firstoption">
+                        <img class="chairoption" src="http://drive.google.com/uc?export=view&id=1XT_yLEEHqpp5Fh4NNIxz-i76leZ2uGFH">
+                        <!--#F6B220-->
+                        <img id ="stu3_img1" class="chairoption" src="http://drive.google.com/uc?export=view&id=135eO6qs3nXH37rddtDX1LqUvpIPijY5p" style="display:none;">
+                        <div class="chairoptionquestion">?</div>
+                    </div>
+                    <div class="secondoption">
+                        <img class="secondoptionimg" src="http://drive.google.com/uc?export=view&id=1O068bcqZo2LDE3aX0GWw7pAFX2F1AIee">
+                        <img id ="stu3_img2" class="secondoptionimg" src="http://drive.google.com/uc?export=view&id=1wMXdd684Wm_HaJAxHc7_f74zYo60_kl7" style="display: none;">
+                    </div>
+                    <div class="thirdoption">
+                        <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1dQdeOnZE51xhFQg7J9NEP6oqyVSHaFil">
+                        <img id ="stu3_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1UJfqvWynmXu8XS9ClnoCnizqLXeuJpT9" style="display: none;">
+                    </div>
+                    <div class="fourthoption">
+                        <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE" >
+                        <img id ="stu3_img4" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="stdfooter" style="left: 74px;top: 825px;">
+                    <!--학생마다 수정-->
+                    <div class="bar">
+                        <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
+                    </div>
+                    <div class="presentation">
+                        발표
+                    </div>
+                    <div id="prenum3" class="modifypresentationnum">
+                        0
+                    </div>
+                    <div class="modifypresentation">
+                        회
+                    </div>
+                </div>
+            </div>
+
+            <div class="std4">
+                <div id ="std4head" class="stdhead" style="left: 758px;top: 500px;">
+                    <!--학생마다 수정-->
+                    <div class="name">
+                        박성완
+                        <!--학생마다 수정-->
+                    </div>
+                </div>
+                <!-- <img class="std" src="./vector/std1.png" style="left: 758px;top: 547px;"> -->
+                <!--학생마다 수정-->
+                <img class="fingeroptionstd4" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
+                <img class="fingeroptionstd4" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
+
+                <div class="agentmenu" style="left: 1216px; top: 500px;">
+                    <!--학생마다 수정-->
+                    <div class="firstoption">
+                        <img class="chairoption" src="http://drive.google.com/uc?export=view&id=1XT_yLEEHqpp5Fh4NNIxz-i76leZ2uGFH">
+                        <!--#F6B220-->
+                        <img id ="stu4_img1" class="chairoption" src="http://drive.google.com/uc?export=view&id=135eO6qs3nXH37rddtDX1LqUvpIPijY5p" style="display:none;">
+                        <div class="chairoptionquestion">?</div>
+                    </div>
+                    <div class="secondoption">
+                        <img class="secondoptionimg" src="http://drive.google.com/uc?export=view&id=1O068bcqZo2LDE3aX0GWw7pAFX2F1AIee">
+                        <img id ="stu4_img2" class="secondoptionimg" src="http://drive.google.com/uc?export=view&id=1wMXdd684Wm_HaJAxHc7_f74zYo60_kl7" style="display: none;">
+                    </div>
+                    <div class="thirdoption">
+                        <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1dQdeOnZE51xhFQg7J9NEP6oqyVSHaFil">
+                        <img id ="stu4_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1UJfqvWynmXu8XS9ClnoCnizqLXeuJpT9" style="display: none;">
+                    </div>
+                    <div class="fourthoption">
+                        <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
+                        <img id ="stu4_img4" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="stdfooter" style="left: 758px;top: 825px;">
+                    <!--학생마다 수정-->
+                    <div class="bar">
+                        <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
+                    </div>
+                    <div class="presentation">
+                        발표
+                    </div>
+                    <div id="prenum4" class="modifypresentationnum">
+                        0
+                    </div>
+                    <div class="modifypresentation">
+                        회
+                    </div>
+                </div>
+            </div>
+
+            <div class="footnav">
+
+                <form action="/video_rewind">
+                  <div id="firstbutton" class="firstoption">
+                    <input type="image" src="http://drive.google.com/uc?export=view&id=1CueivPC00L_D4p_kFyF3mCidmXrjrJj0" border="0" alt="Submit" />
+                  </div>
+                </form>
+                <div id="secondbutton"class="secondoption">
+                    <img src="http://drive.google.com/uc?export=view&id=1pOXMmrAi78Y4_Gzoc9RBd--zeSsCixcq">
+                </div>
+                <div id="thirdbutton"class="thirdoption">
+                    <img src="http://drive.google.com/uc?export=view&id=1LUbEe2SayQr3gZMbLa1u_6u2Gx4EqXdk">
+                </div>
+                <div id="fourthbutton"class="fourthoption">
+                    <img src="http://drive.google.com/uc?export=view&id=1U5JXHa4TzTroc_cdaZZ2q8ayyoX1S3Xs">
+                </div>
+                <div id="fifthbutton"class="fifthoption">
+                    <img src="http://drive.google.com/uc?export=view&id=1qbG-JC4dOjytTv6vgsSuPAg-hIeXwd5n">
+                </div>
+            </div>
+            <div class="firstoptionword">
+                다시 시작
+            </div>
+            <div class="secondoptionword">
+                카메라
+            </div>
+            <div class="thirdoptionword">
+                마이크
+            </div>
+            <div class="fourthoptionword">
+                로그
+            </div>
+            <div class="fifthoptionword">
+                알람
+            </div>
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+  let student1action;
+  let student2action;
+  let student3action;
+  let student4action;
+
+  let student1color;
+  let student2color;
+  let student3color;
+  let student4color;
+
+  let student1record = [0,0,0,0];
+  let student2record = [0,0,0,0];
+  let student3record = [0,0,0,0];
+  let student4record = [0,0,0,0];
+  /*버튼 활성화 시키기*/
+  const stu1_img1 = document.getElementById("stu1_img1");
+  const stu1_img2 = document.getElementById("stu1_img2");
+  const stu1_img3 = document.getElementById("stu1_img3");
+  const stu1_img4 = document.getElementById("stu1_img4");
+
+  const stu2_img1 = document.getElementById("stu2_img1");
+  const stu2_img2 = document.getElementById("stu2_img2");
+  const stu2_img3 = document.getElementById("stu2_img3");
+  const stu2_img4 = document.getElementById("stu2_img4");
+
+  const stu3_img1 = document.getElementById("stu3_img1");
+  const stu3_img2 = document.getElementById("stu3_img2");
+  const stu3_img3 = document.getElementById("stu3_img3");
+  const stu3_img4 = document.getElementById("stu3_img4");
+
+  const stu4_img1 = document.getElementById("stu4_img1");
+  const stu4_img2 = document.getElementById("stu4_img2");
+  const stu4_img3 = document.getElementById("stu4_img3");
+  const stu4_img4 = document.getElementById("stu4_img4");
+  /*버튼 활성화 시키기*/
+
+  /*학생 윗부분 색깔 바꾸기*/
+  const std1head = document.getElementById("std1head");
+  const std2head = document.getElementById("std2head");
+  const std3head = document.getElementById("std3head");
+  const std4head = document.getElementById("std4head");
+  /*학생 윗부분 색깔 바꾸기*/
+
+  /*자리비움, 자세불량(얼굴 면적 줄어듬), 발화안함 ,졸음*/
+  /* 오디오에 대한 Js*/
+  // 알람소리 audio
+  var modal5audio = new Audio(
+    "https://drive.google.com/uc?id=15wahiayrur6SaxASPRSHLtnYezOmpJKT"
+  );
+
+  // 폭탄소리 audio
+  var modal3audio1 = new Audio(
+    "https://drive.google.com/uc?id=1I7TQstLvbdfaAqp27jB44e1801b1An0g"
+  );
+  var modal3audio2 = new Audio(
+    "https://drive.google.com/uc?id=1I7TQstLvbdfaAqp27jB44e1801b1An0g"
+  );
+  var modal3audio3 = new Audio(
+    "https://drive.google.com/uc?id=1I7TQstLvbdfaAqp27jB44e1801b1An0g"
+    );
+  var modal3audio4 = new Audio(
+    "https://drive.google.com/uc?id=1I7TQstLvbdfaAqp27jB44e1801b1An0g"
+  );
+
+  //사이렌소리 audio
+  let modal1audio1 = new Audio(
+    "https://drive.google.com/uc?id=1j7vKTfqzoBVfvHUqgyHmq-GDniSrdzS4"
+  );
+  let modal1audio2 = new Audio(
+    "https://drive.google.com/uc?id=1j7vKTfqzoBVfvHUqgyHmq-GDniSrdzS4"
+  );
+  let modal1audio3 = new Audio(
+    "https://drive.google.com/uc?id=1j7vKTfqzoBVfvHUqgyHmq-GDniSrdzS4"
+  );
+  let modal1audio4 = new Audio(
+    "https://drive.google.com/uc?id=1j7vKTfqzoBVfvHUqgyHmq-GDniSrdzS4"
+  );
+  /* 오디오에 대한 Js*/
+
+  /*모달창에 대한 Js*/
+  const std1_modal1 = document.getElementById("std1_modal1");
+  const std1_modal2 = document.getElementById("std1_modal2");
+  const std1_modal3 = document.getElementById("std1_modal3");
+  const std1_modal4 = document.getElementById("std1_modal4");
+  const std1_modal5 = document.getElementById("std1_modal5");
+  function std1_modal1_on(){
+    modal1audio1.play();
+    std1_modal1.style.display = "block";
+
+  }
+  function std1_modal1_off(){
+    std1_modal1.style.display = "none";
+    modal1audio1.pause();
+    modal1audio1.currentTime = 0;
+  }
+  function std1_modal2_on(){
+    std1_modal2.style.display = "block";
+  }
+  function std1_modal2_off(){
+    std1_modal2.style.display = "none";
+  }
+  function std1_modal3_on(){
+    std1_modal3.style.display = "block";
+    modal3audio1.play();
+  }
+  function std1_modal3_off(){
+    std1_modal3.style.display = "none";
+    modal3audio1.pause();
+    modal3audio1.currentTime = 0;
+  }
+  function std1_modal4_on(){
+    std1_modal4.style.display = "block";
+  }
+  function std1_modal4_off(){
+    std1_modal4.style.display = "none";
+  }
+  std1_modal1.addEventListener("click", (e) => {
+        std1_modal1_off();
+  });
+  std1_modal2.addEventListener("click", (e) => {
+        std1_modal2_off();
+  });
+  std1_modal3.addEventListener("click", (e) => {
+        std1_modal3_off();
+  });
+  std1_modal4.addEventListener("click", (e) => {
+        std1_modal4_off();
+  });
+
+  const std2_modal1 = document.getElementById("std2_modal1");
+  const std2_modal2 = document.getElementById("std2_modal2");
+  const std2_modal3 = document.getElementById("std2_modal3");
+  const std2_modal4 = document.getElementById("std2_modal4");
+  const std2_modal5 = document.getElementById("std2_modal5");
+  function std2_modal1_on(){
+    std2_modal1.style.display = "block";
+    modal1audio2.play();
+  }
+  function std2_modal1_off(){
+    std2_modal1.style.display = "none";
+    modal1audio2.pause();
+    modal1audio2.currentTime = 0;
+  }
+  function std2_modal2_on(){
+    std2_modal2.style.display = "block";
+  }
+  function std2_modal2_off(){
+    std2_modal2.style.display = "none";
+  }
+  function std2_modal3_on(){
+    std2_modal3.style.display = "block";
+    modal3audio2.play();
+  }
+  function std2_modal3_off(){
+    std2_modal3.style.display = "none";
+    modal3audio2.pause();
+    modal3audio2.currentTime = 0;
+  }
+  function std2_modal4_on(){
+    std2_modal4.style.display = "block";
+  }
+  function std2_modal4_off(){
+    std2_modal4.style.display = "none";
+  }
+  std2_modal1.addEventListener("click", (e) => {
+        std2_modal1_off();
+  });
+  std2_modal2.addEventListener("click", (e) => {
+        std2_modal2_off();
+  });
+  std2_modal3.addEventListener("click", (e) => {
+        std2_modal3_off();
+  });
+  std2_modal4.addEventListener("click", (e) => {
+        std2_modal4_off();
+  });
+
+  const std3_modal1 = document.getElementById("std3_modal1");
+  const std3_modal2 = document.getElementById("std3_modal2");
+  const std3_modal3 = document.getElementById("std3_modal3");
+  const std3_modal4 = document.getElementById("std3_modal4");
+  const std3_modal5 = document.getElementById("std3_modal5");
+  function std3_modal1_on(){
+    std3_modal1.style.display = "block";
+    modal1audio3.play();
+  }
+  function std3_modal1_off(){
+    std3_modal1.style.display = "none";
+    modal1audio3.pause();
+    modal1audio3.currentTime = 0;
+  }
+  function std3_modal2_on(){
+    std3_modal2.style.display = "block";
+  }
+  function std3_modal2_off(){
+    std3_modal2.style.display = "none";
+  }
+  function std3_modal3_on(){
+    std3_modal3.style.display = "block";
+    modal3audio3.play();
+  }
+  function std3_modal3_off(){
+    std3_modal3.style.display = "none";
+    modal3audio3.pause();
+    modal3audio3.currentTime = 0;
+  }
+  function std3_modal4_on(){
+    std3_modal4.style.display = "block";
+  }
+  function std3_modal4_off(){
+    std3_modal4.style.display = "none";
+  }
+  std3_modal1.addEventListener("click", (e) => {
+        std3_modal1_off();
+  });
+  std3_modal2.addEventListener("click", (e) => {
+        std3_modal2_off();
+  });
+  std3_modal3.addEventListener("click", (e) => {
+        std3_modal3_off();
+  });
+  std3_modal4.addEventListener("click", (e) => {
+        std3_modal4_off();
+  });
+
+  const std4_modal1 = document.getElementById("std4_modal1");
+  const std4_modal2 = document.getElementById("std4_modal2");
+  const std4_modal3 = document.getElementById("std4_modal3");
+  const std4_modal4 = document.getElementById("std4_modal4");
+  const std4_modal5 = document.getElementById("std4_modal5");
+  function std4_modal1_on(){
+    std4_modal1.style.display = "block";
+    modal1audio4.play();
+  }
+  function std4_modal1_off(){
+    std4_modal1.style.display = "none";
+    modal1audio4.pause();
+    modal1audio4.currentTime = 0;
+  }
+  function std4_modal2_on(){
+    std4_modal2.style.display = "block";
+  }
+  function std4_modal2_off(){
+    std4_modal2.style.display = "none";
+  }
+  function std4_modal3_on(){
+    std4_modal3.style.display = "block";
+    modal3audio4.play();
+  }
+  function std4_modal3_off(){
+    std4_modal3.style.display = "none";
+    modal3audio4.pause();
+    modal3audio4.currentTime = 0;
+  }
+  function std4_modal4_on(){
+    std4_modal4.style.display = "block";
+  }
+  function std4_modal4_off(){
+    std4_modal4.style.display = "none";
+  }
+  std4_modal1.addEventListener("click", (e) => {
+        std4_modal1_off();
+  });
+  std4_modal2.addEventListener("click", (e) => {
+        std4_modal2_off();
+  });
+  std4_modal3.addEventListener("click", (e) => {
+        std4_modal3_off();
+  });
+  std4_modal4.addEventListener("click", (e) => {
+        std4_modal4_off();
+  });
+
+  function alarm_on(){
+    std1_modal5.style.display = "block";
+    std2_modal5.style.display = "block";
+    std3_modal5.style.display = "block";
+    std4_modal5.style.display = "block";
+    modal5audio.play();
+  }
+  function alarm_off(){
+    std1_modal5.style.display = "none";
+    std2_modal5.style.display = "none";
+    std3_modal5.style.display = "none";
+    std4_modal5.style.display = "none";
+    modal3audio4.pause();
+    modal3audio4.currentTime = 0;
+  }
+  /*모달창에 대한 Js*/
+
+  /*하단 버튼에 대한 JS*/
+  const firstbutton = document.getElementById("firstbutton");
+  const secondbutton = document.getElementById("secondbutton");
+  const thirdbutton = document.getElementById("thirdbutton");
+  const fourthbutton = document.getElementById("fourthbutton");
+  fourthbutton.addEventListener("click", (e) => {
+    //모달창 나오게 만들기
+  });
+
+  const fifthbutton = document.getElementById("fifthbutton");
+  fifthbutton.addEventListener("click", (e) => {
+        alarm_on();
+        setTimeout(function(){
+          alarm_off();
+        },5000)
+  });
+  /*하단 버튼에 대한 JS*/
+
+  setInterval(function () {
+    $.ajax({
+      url: "/vad_feed",
+      type: "POST",
+      success: function (response) {
+        console.log("vad feed success!!");
+
+        console.log(response["SpeechCount1"]);
+        console.log(response["SpeechCount2"]);
+        console.log(response["SpeechCount3"]);
+        console.log(response["SpeechCount4"]);
+
+        $("#prenum1").text(response["SpeechCount1"]);
+        $("#prenum2").text(response["SpeechCount2"]);
+        $("#prenum3").text(response["SpeechCount3"]);
+        $("#prenum4").text(response["SpeechCount4"]);
+      },
+      error: function (error) {
+        console.log("vad feed err!!!");
+      },
+    });
+  }, 1000);
+
+  setInterval(function () {
+    $.ajax({
+      url: "/colorStat_feed",
+      type: "POST",
+      success: function (response) {
+        student1color = response["stu1Color"];
+        student2color = response["stu2Color"];
+        student3color = response["stu3Color"];
+        student4color = response["stu4Color"];
+        /* 0: not engaged 1: nutural 2: highly engaged*/
+        if(student1color==="0"){
+          std1head.style.backgroundColor = "#FF5037";
+        }
+        else if(student1color==="1"){
+          std1head.style.backgroundColor = "#FFD151";
+        }
+        else if(student1color==="2"){
+          std1head.style.backgroundColor = "#40CC30";
+        }
+
+        if(student2color==="0"){
+          std2head.style.backgroundColor = "#FF5037";
+        }
+        else if(student2color==="1"){
+          std2head.style.backgroundColor = "#FFD151";
+        }
+        else if(student2color==="2"){
+          std2head.style.backgroundColor = "#40CC30";
+        }
+
+        if(student3color==="0"){
+          std3head.style.backgroundColor = "#FF5037";
+        }
+        else if(student3color==="1"){
+          std3head.style.backgroundColor = "#FFD151";
+        }
+        else if(student3color==="2"){
+          std3head.style.backgroundColor = "#40CC30";
+        }
+
+        if(student4color==="0"){
+          std4head.style.backgroundColor = "#FF5037";
+        }
+        else if(student4color==="1"){
+          std4head.style.backgroundColor = "#FFD151";
+        }
+        else if(student4color==="2"){
+          std4head.style.backgroundColor = "#40CC30";
+        }
+
+
+      },
+      error: function (error) {
+        console.log("error!");
+      },
+    });
+  }, 1000);
+
+  setInterval(function () {
+    $.ajax({
+      url: "/generalStat_feed",
+      type: "POST",
+      success: function (response) {
+        student1action = response["stu1General"];
+        student2action = response["stu2General"];
+        student3action = response["stu3General"];
+        student4action = response["stu4General"];
+
+        if(student1action[0]==="1"){
+          student1record[0]++;
+        }
+        else{
+          student1record[0]=0;
+        }
+        if(student1action[1]==="1"){
+          student1record[1]++;
+        }
+        else{
+          student1record[1]=0;
+        }
+        if(student1action[2]==="1"){
+          student1record[2]++;
+        }
+        else{
+          student1record[2]=0;
+        }
+        if(student1action[3]==="1"){
+          student1record[3]++;
+        }
+        else{
+          student1record[3]=0;
+        }
+
+        if(student2action[0]==="1"){
+          student2record[0]++;
+        }
+        else{
+          student2record[0]=0;
+        }
+        if(student2action[1]==="1"){
+          student2actionrecord[1]++;
+        }
+        else{
+          student2record[1]=0;
+        }
+        if(student2action[2]==="1"){
+          student2record[2]++;
+        }
+        else{
+          student2record[2]=0;
+        }
+        if(student2action[3]==="1"){
+          student2record[3]++;
+        }
+        else{
+          student2record[3]=0;
+        }
+
+        if(student3action[0]==="1"){
+          student3record[0]++;
+        }
+        else{
+          student3record[0]=0;
+        }
+        if(student3action[1]==="1"){
+          student3actionrecord[1]++;
+        }
+        else{
+          student3record[1]=0;
+        }
+        if(student3action[2]==="1"){
+          student3record[2]++;
+        }
+        else{
+          student3record[2]=0;
+        }
+        if(student3action[3]==="1"){
+          student3record[3]++;
+        }
+        else{
+          student3record[3]=0;
+        }
+
+        if(student4action[0]==="1"){
+          student4record[0]++;
+        }
+        else{
+          student4record[0]=0;
+        }
+        if(student4action[1]==="1"){
+          student4actionrecord[1]++;
+        }
+        else{
+          student4record[1]=0;
+        }
+        if(student4action[2]==="1"){
+          student4record[2]++;
+        }
+        else{
+          student4record[2]=0;
+        }
+        if(student4action[3]==="1"){
+          student4record[3]++;
+        }
+        else{
+          student4record[3]=0;
+        }
+
+      },
+      error: function (error) {
+        console.log("signal_err");
+      },
+    });
+  }, 1000);
+
+</script>
+
+</html>
