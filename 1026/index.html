@@ -927,6 +927,9 @@
                 </div>
                 <!--학생마다 수정-->
                 <img class="fingeroptionstd1" src="http://drive.google.com/uc?export=view&id=1pGPnqQvRj44xpaG-HZk-eg-XuN_PPuQ4">
+                <img id ="std1hand1" class="fingeroptionstd1" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
+                <img id ="std1hand2" class="fingeroptionstd1" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
+
 
                 <div class="agentmenu" style="left: 532px; top: 94px;">
                     <!--학생마다 수정-->
@@ -977,8 +980,8 @@
                     </div>
                 </div>
                 <!--학생마다 수정-->
-                <img class="fingeroptionstd2" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
-                <img class="fingeroptionstd2" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
+                <img id ="std2hand1" class="fingeroptionstd2" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
+                <img id ="std2hand2" class="fingeroptionstd2" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
 
                 <div class="agentmenu" style="left: 1216px; top: 94px;">
                     <!--학생마다 수정-->
@@ -1028,8 +1031,8 @@
                     </div>
                 </div>
                 <!--학생마다 수정-->
-                <img class="fingeroptionstd3" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
-                <img class="fingeroptionstd3" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
+                <img id ="std3hand1" class="fingeroptionstd3" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
+                <img id ="std3hand2" class="fingeroptionstd3" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
 
                 <div class="agentmenu" style="left: 532px; top: 500px;">
                     <!--학생마다 수정-->
@@ -1080,8 +1083,8 @@
                 </div>
                 <!-- <img class="std" src="./vector/std1.png" style="left: 758px;top: 547px;"> -->
                 <!--학생마다 수정-->
-                <img class="fingeroptionstd4" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
-                <img class="fingeroptionstd4" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
+                <img id ="std4hand1" class="fingeroptionstd4" src="http://drive.google.com/uc?export=view&id=1SRcpqKqbzYtwppnKTf8LjEZiUy-6MXkA" style="display:none;">
+                <img id ="std4hand2" class="fingeroptionstd4" src="http://drive.google.com/uc?export=view&id=1bGLBgzBQivcytf312jEcj6IjnjX3f8kf" style="display:none;">
 
                 <div class="agentmenu" style="left: 1216px; top: 500px;">
                     <!--학생마다 수정-->
@@ -1172,6 +1175,20 @@
   let student3record = [0,0,0,0];
   let student4record = [0,0,0,0];
 
+  let stu1handposerecord = [0,0];
+  let stu2handposerecord = [0,0];
+  let stu3handposerecord = [0,0];
+  let stu4handposerecord = [0,0];
+  /*handpose 관련 모달*/
+  const std1hand1 = document.getElementById("std1hand1");
+  const std1hand2 = document.getElementById("std1hand2");
+  const std2hand1 = document.getElementById("std2hand1");
+  const std2hand2 = document.getElementById("std2hand2");
+  const std3hand1 = document.getElementById("std3hand1");
+  const std3hand2 = document.getElementById("std3hand2");
+  const std4hand1 = document.getElementById("std4hand1");
+  const std4hand2 = document.getElementById("std4hand2");
+  /*handpose 관련 모달*/
   /*영상이 끝남을 알려주는 모달*/
   const finishAlarm = document.getElementById("finishAlarm");
   /*영상이 끝남을 알려주는 모달*/
@@ -1458,7 +1475,7 @@
   const thirdbutton = document.getElementById("thirdbutton");
   const fourthbutton = document.getElementById("fourthbutton");
   firstbutton.addEventListener("click", (e) => {
-    finishAlarm.style.display = "block";
+    finishAlarm.style.display = "none";
   });
   fourthbutton.addEventListener("click", (e) => {
     //모달창 나오게 만들기
@@ -1560,6 +1577,55 @@
         student3action = response["stu3General"];
         student4action = response["stu4General"];
 
+        student1hand = response["stu1Hand"];
+        student2hand = response["stu2Hand"];
+        student3hand = response["stu3Hand"];
+        student4hand = response["stu4Hand"];
+
+        if(student1hand ==="5"){ //손들기
+          stu1handposerecord[0]++;
+        }
+        else if(student1hand ==="10"){ //OK
+          stu1handposerecord[0]++;
+        }
+        else{
+          stu1handposerecord[0]=0;
+          stu1handposerecord[1]=0;
+        }
+
+        if(student2hand ==="5"){ //손들기
+          stu2handposerecord[0]++;
+        }
+        else if(student2hand ==="10"){ //OK
+          stu2handposerecord[0]++;
+        }
+        else{
+          stu2handposerecord[0]=0;
+          stu2handposerecord[1]=0;
+        }
+
+        if(student3hand ==="5"){ //손들기
+          stu3handposerecord[0]++;
+        }
+        else if(student3hand ==="10"){ //OK
+          stu3handposerecord[0]++;
+        }
+        else{
+          stu3handposerecord[0]=0;
+          stu3handposerecord[1]=0;
+        }
+
+        if(student4hand ==="5"){ //손들기
+          stu4handposerecord[0]++;
+        }
+        else if(student4hand ==="10"){ //OK
+          stu4handposerecord[0]++;
+        }
+        else{
+          stu4handposerecord[0]=0;
+          stu4handposerecord[1]=0;
+        }
+
         if(student1action[0]==="1"){
           student1record[0]++;
         }
@@ -1660,6 +1726,49 @@
           student4record[3]=0;
         }
 
+        if(stu1handposerecord[0]>3){
+          std1hand1.style.display = "block";
+        }
+        else if(stu1handposerecord[1]>3){
+          std1hand2.style.display = "block";
+        }
+        else{
+          std1hand1.style.display = "none";
+          std1hand2.style.display = "none";
+        }
+
+        if(stu2handposerecord[0]>3){
+          std2hand1.style.display = "block";
+        }
+        else if(stu2handposerecord[1]>3){
+          std2hand2.style.display = "block";
+        }
+        else{
+          std2hand1.style.display = "none";
+          std2hand2.style.display = "none";
+        }
+
+        if(stu3handposerecord[0]>3){
+          std3hand1.style.display = "block";
+        }
+        else if(stu3handposerecord[1]>3){
+          std3hand2.style.display = "block";
+        }
+        else{
+          std3hand1.style.display = "none";
+          std3hand2.style.display = "none";
+        }
+
+        if(stu4handposerecord[0]>3){
+          std4hand1.style.display = "block";
+        }
+        else if(stu4handposerecord[1]>3){
+          std4hand2.style.display = "block";
+        }
+        else{
+          std4hand1.style.display = "none";
+          std4hand2.style.display = "none";
+        }
         if(student1record[0]>5){
           std1_modal1_on();
           stu1_img1.style.display = "block";
@@ -1683,7 +1792,7 @@
         else{
           //std1_modal3_off();
           stu1_img3.style.display = "none";
-        }*/
+        }
         if(student1record[3]>10){
           std1_modal4_on();
           stu1_img4.style.display = "block";
@@ -1813,6 +1922,9 @@
   stu4_img3.addEventListener("click", (e) => {
     std4_modal3_on();
   });
+  /*모달창 안겹치게 만들기
+    게미피케이션 체력게이지 만들기
+  */
 </script>
 
 </html>
