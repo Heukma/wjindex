@@ -710,12 +710,25 @@
 
           .progressnow{
             position: absolute;
-            width: 20%;
+            width: 70%;
             height: 24px;
             left: 0px;
             top: 0px;
             background: #40CC30;
             border-radius: 5px;
+          }
+          .progresstext{
+            position: absolute;
+            left: 124px;
+            top: 4px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 16px;
+
+            color: #101010;
           }
 
           /*#std1progressbar{
@@ -1363,6 +1376,7 @@
                     <div class="progresscontainer">
                         <div class="progressmax"></div>
                         <div id="std1progressbar" class="progressnow"></div>
+                        <div id="std1progressbartext" class="progresstext">몰입도 70%</div>
                     </div>
 
                     <div class="bar">
@@ -1427,6 +1441,7 @@
                     <div class="progresscontainer">
                         <div class="progressmax"></div>
                         <div id="std2progressbar" class="progressnow"></div>
+                        <div id="std2progressbartext" class="progresstext">몰입도 70%</div>
                     </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
@@ -1489,6 +1504,7 @@
                     <div class="progresscontainer">
                         <div class="progressmax"></div>
                         <div id="std3progressbar" class="progressnow"></div>
+                        <div id="std3progressbartext" class="progresstext">몰입도 70%</div>
                     </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
@@ -1552,6 +1568,7 @@
                     <div class="progresscontainer">
                         <div class="progressmax"></div>
                         <div id="std4progressbar" class="progressnow"></div>
+                        <div id="std4progressbartext" class="progresstext">몰입도 70%</div>
                     </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
@@ -1618,10 +1635,10 @@
   let std3totalcolor = [0,0,0];
   let std4totalcolor = [0,0,0];
 
-  let std1score=50;
-  let std2score=50;
-  let std3score=50;
-  let std4score=50;
+  let std1score=70;
+  let std2score=70;
+  let std3score=70;
+  let std4score=70;
 
   let student1record = [0,0,0,0];
   let student2record = [0,0,0,0];
@@ -1644,7 +1661,11 @@
   const std2progressbar = document.getElementById("std2progressbar");
   const std3progressbar = document.getElementById("std3progressbar");
   const std4progressbar = document.getElementById("std4progressbar");
-
+  /*텍스트*/
+  const std1progressbartext = document.getElementById("std1progressbartext");
+  const std2progressbartext = document.getElementById("std2progressbartext");
+  const std3progressbartext = document.getElementById("std3progressbartext");
+  const std4progressbartext = document.getElementById("std4progressbartext");
 
   /*handpose 관련 모달*/
   const std1hand1 = document.getElementById("std1hand1");
@@ -2332,7 +2353,7 @@
           stu1_balloon4.style.display = "none";
           stu1_img3.style.display = "none";
         }
-        if(student1record[3]>5){
+        if(student1record[3]>3){
           if(std1modalon===0){
             std1modalon=4;
             std1_modal4_on();
@@ -2538,16 +2559,23 @@
     bar.animate({width: String(score)+"%"},1000);
   }
   setInterval(function(){
+    /*
     progressbaranimation(std1progressbar,std1score);
     progressbaranimation(std2progressbar,std2score);
     progressbaranimation(std3progressbar,std3score);
-    progressbaranimation(std4progressbar,std4score);
+    progressbaranimation(std4progressbar,std4score);*/
 
-    //std1progressbar.style.width = String(std1score)+"%";
-    //std2progressbar.style.width = String(std2score)+"%";
-    //std3progressbar.style.width = String(std3score)+"%";
-    //std4progressbar.style.width = String(std4score)+"%";
-  },10000);
+    std1progressbar.style.width = String(std1score)+"%";
+    std2progressbar.style.width = String(std2score)+"%";
+    std3progressbar.style.width = String(std3score)+"%";
+    std4progressbar.style.width = String(std4score)+"%";
+  },1000);
+  setInterval(function(){
+    std1progressbartext.textContent = "몰입도 "+String(std1score)+"%";
+    std2progressbartext.textContent = "몰입도 "+String(std2score)+"%";
+    std3progressbartext.textContent = "몰입도 "+String(std3score)+"%";
+    std4progressbartext.textContent = "몰입도 "+String(std4score)+"%";
+  },1000);
   stu1_img3.addEventListener("click", (e) => {
     std1_modal3_on();
   });
@@ -2560,9 +2588,7 @@
   stu4_img3.addEventListener("click", (e) => {
     std4_modal3_on();
   });
-  /*
-    게미피케이션 체력게이지 만들기
-  */
+
 </script>
 
 </html>
