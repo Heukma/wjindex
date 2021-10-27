@@ -122,7 +122,7 @@
             width: 458px;
             height: 50px;
 
-            background: #FFD151;
+            background: #929292;
             border-radius: 6px 6px 0px 0px;
         }
 
@@ -194,28 +194,28 @@
             position: absolute;
             display: none;
             overflow: visible;
-            top:34px;
+            top:28px;
             left:122px;
         }
         .agentmenu .textballoon2{
             position: absolute;
             display: none;
             overflow: visible;
-            top:109px;
+            top:104px;
             left:122px;
         }
         .agentmenu .textballoon3{
             position: absolute;
             display: none;
             overflow: visible;
-            top:186px;
+            top:179px;
             left:122px;
         }
         .agentmenu .textballoon4{
             position: absolute;
             display: none;
             overflow: visible;
-            top:260px;
+            top:255px;
             left:122px;
         }
 
@@ -553,6 +553,48 @@
             top: 11px;
             cursor: pointer;
           }
+          .std_modal_text{
+            position: absolute;
+            width: 184px;
+            height: 22px;
+            top:95px;
+            left:6px;
+
+            background: #FFFFFF;
+            border: 3px solid #FFFFFF;
+            box-sizing: border-box;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 17px;
+
+            color: #000000;
+          }
+          .std_modal_text1{
+            position: absolute;
+            width: 184px;
+            height: 22px;
+            top:95px;
+            left:6px;
+
+            background: #FFFFFF;
+            border: 3px solid #FFFFFF;
+            box-sizing: border-box;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 17px;
+
+            color: #000000;
+          }
           .std_modal_bomb_text {
             position: absolute;
             width: 152px;
@@ -725,7 +767,7 @@
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 20px;
             line-height: 16px;
 
             color: #101010;
@@ -757,8 +799,6 @@
           }
           .result_full {
             position: absolute;
-            width: 1100px;
-            height: 840px;
             left: 20%;
             top: 6%;
             box-sizing: border-box;
@@ -831,7 +871,7 @@
 <body>
   <div id= "modal"class="result_overlay">
     <div class="result_full">
-      <img src="http://drive.google.com/uc?export=view&id=1HdE4C4l9eOAUpdAnWZYZSwuQfpl9sXE2" style="width : 100%;">
+      <img src="http://drive.google.com/uc?export=view&id=1onliPMsNqFdyqfv6tiWFn8vTIXUKNJvs" style="width : 100%;">
     </div>
   </div>
   <script type="text/javascript">
@@ -1091,221 +1131,168 @@
     영상이 종료되었습니다. 새로고침 버튼을 눌러 다시 시작하세요.
   </div>
 
-    <div id="wrap">
-      <!--이미지, 학생얼굴 뜨기까지 흰화면으로 로딩-->
-      <div id="loading" class="loading">
-        <script>
-        const loadScreen = document.getElementById("loading");
-        const clickLoad = document.getElementById("loading");
-        clickLoad.addEventListener("click", (e) => {
-          loadScreen.style.display = "none";
-        });
+  <!--이미지, 학생얼굴 뜨기까지 흰화면으로 로딩-->
+  <div id="loading" class="loading">
+    <script>
+    const loadScreen = document.getElementById("loading");
+    const clickLoad = document.getElementById("loading");
+    clickLoad.addEventListener("click", (e) => {
+      loadScreen.style.display = "none";
+    });
 
-        setTimeout(function () {
-          document.getElementById("loading").style.display = "none";
-        }, 5000);
-        </script>
-      </div>
+    setTimeout(function () {
+      document.getElementById("loading").style.display = "none";
+    }, 5000);
+    </script>
+  </div>
+    <div id="wrap">
 
         <div class="mainframe">
 <!--모달 순서 바꾸기-->
           <div class="std1__modal">
-            <div id="std1_modal4" class="std1_modal" style="display: none;border: 3px solid #7D4EDA">
-              <div class="explain_to_teacher">
+            <div id="std1_modal4" class="std1_modal" style="display: none;border: 4px solid #7D4EDA">
+              <!--<div class="explain_to_teacher">
                 <center>졸음 방지</center>
-              </div>
+              </div>-->
               <img id="std1_closemodal1" class="std_modal_bomb_picture"
                 src="https://drive.google.com/uc?id=1GuZWaZNCnpw0KvtlMun6EQ2Zkq0b3p_8" />
-              <div class="std_modal_bomb_text">
-                &nbsp;&nbsp;&nbsp;폭탄이 터지는걸 막아주세요!
+              <div class="std_modal_text">
+                터지는 폭탄을 막아줘요!
               </div>
             </div>
 
-            <div id="std1_modal1" class="std1_modal" style="display: none; border: 3px solid #F6B220">
-              <div class="explain_to_teacher">
-                <center>자리 비움</center>
-              </div>
+            <div id="std1_modal1" class="std1_modal" style="display: none; border: 4px solid #F6B220">
               <img id="std1_closemodal2" class="std_modal_thief"
                 src="https://drive.google.com/uc?id=1DFZf5XYsZZsH3c-tFVF0SUzHg8IaZLIw" />
-              <div class="std_modal_thief_text">도둑을 클릭해 보물을 지켜주세요!</div>
+              <div class="std_modal_text1">도둑을 클릭해 보물을 지켜요!</div>
             </div>
 
-            <div id="std1_modal3" class="std1_modal" style="display: none; border: 3px solid #EE7B33">
-              <div class="std_modal_speech_text">
-                &nbsp;&nbsp;&nbsp;적극적으로 발표해 보아요!
-              </div>
-              <div class="explain_to_teacher">
-                <center>발화 독려</center>
-              </div>
+            <div id="std1_modal3" class="std1_modal" style="display: none; border: 4px solid #EE7B33">
               <img id="std1_closemodal3" class="std_modal_speech"
                 src="https://drive.google.com/uc?id=1AkaFtPofzu35z03enhZKZ6Sg4qk2EnLX" />
+                <div class="std_modal_text">적극적으로 발표해보아요!</div>
             </div>
-            <div id="std1_modal2" class="std1_modal" style="display: none; border: 3px solid #4B99D5">
-              <div class="std_modal_posture_text">
-                &nbsp;바른 자세로 수업에 집중해 보아요!
-              </div>
-              <div class="explain_to_teacher">
-                <center>자세 교정</center>
-              </div>
+            <div id="std1_modal2" class="std1_modal" style="display: none; border: 4px solid #4B99D5">
               <img id="std1_closemodal4" class="std_modal_speech"
                 src="http://drive.google.com/uc?export=view&id=1LWpNJ7eSiKre3P7Y5aPANmNZqnOxJ4qU" />
+                <div class="std_modal_text">
+                  바른 자세로 수업에 집중!
+                </div>
             </div>
             <div id="std1_modal5" class="std1_modal" style="display:none">
-              <img id="std1_closemodal5" style="width: 100%; border-radius: 15px; cursor:pointer"
-                src="https://drive.google.com/uc?id=1Eva5Gsm7usV4DJlMKDPQJk4NJNT31Dm_" />
-              <div class="std_modal_alarm_text">
-                &nbsp;&nbsp;주목! 선생님에게 집중해 보아요!
-              </div>
+              <img id="std1_closemodal5" style="width: 100%;height: 100%; border-radius: 15px; cursor:pointer"
+                src="http://drive.google.com/uc?export=view&id=148y8hpVRa-ALKwMBJnlI_EkhiMkkaFza" />
+                <div class="std_modal_text">
+                  선생님에게 집중해보아요!
+                </div>
             </div>
           </div>
 
           <div class="std2__modal">
-            <div id="std2_modal4" class="std2_modal" style="display: none;border: 3px solid #7D4EDA">
-              <div class="explain_to_teacher">
-                <center>졸음 방지</center>
-              </div>
+            <div id="std2_modal4" class="std2_modal" style="display: none;border: 4px solid #7D4EDA">
               <img id="close_bomb_std2" class="std_modal_bomb_picture"
                 src="https://drive.google.com/uc?id=1GuZWaZNCnpw0KvtlMun6EQ2Zkq0b3p_8" />
-              <div class="std_modal_bomb_text">
-                &nbsp;&nbsp;&nbsp;폭탄이 터지는걸 막아주세요!
-              </div>
+                <div class="std_modal_text">
+                  터지는 폭탄을 막아줘요!
+                </div>
             </div>
 
-            <div id="std2_modal1" class="std2_modal" style="display: none; border: 3px solid #F6B220">
-              <div class="explain_to_teacher">
-                <center>자리 비움</center>
-              </div>
+            <div id="std2_modal1" class="std2_modal" style="display: none; font-size:8px;border: 4px solid #F6B220">
               <img id="colse_thief_std2" class="std_modal_thief"
                 src="https://drive.google.com/uc?id=1DFZf5XYsZZsH3c-tFVF0SUzHg8IaZLIw" />
-              <div class="std_modal_thief_text">도둑을 클릭해 보물을 지켜주세요!</div>
+              <div class="std_modal_text1">도둑을 클릭해 보물을 지켜요!</div>
             </div>
 
-            <div id="std2_modal3" class="std2_modal" style="display: none; border: 3px solid #EE7B33">
-              <div class="std_modal_speech_text">
-                &nbsp;&nbsp;&nbsp;적극적으로 발표해 보아요!
-              </div>
-              <div class="explain_to_teacher">
-                <center>발화 독려</center>
-              </div>
+            <div id="std2_modal3" class="std2_modal" style="display: none; border: 4px solid #EE7B33">
               <img id="close_speech_stu1" class="std_modal_speech"
                 src="https://drive.google.com/uc?id=1AkaFtPofzu35z03enhZKZ6Sg4qk2EnLX" />
+                <div class="std_modal_text">적극적으로 발표해 보아요!</div>
             </div>
-            <div id="std2_modal2" class="std2_modal" style="display: none; border: 3px solid #4B99D5">
-              <div class="std_modal_posture_text">
-                &nbsp;바른 자세로 수업에 집중해 보아요!
-              </div>
-              <div class="explain_to_teacher">
-                <center>자세 교정</center>
-              </div>
+            <div id="std2_modal2" class="std2_modal" style="display: none; border: 4px solid #4B99D5">
               <img id="close_posture_std2" class="std_modal_speech"
                 src="http://drive.google.com/uc?export=view&id=1LWpNJ7eSiKre3P7Y5aPANmNZqnOxJ4qU" />
+                <div class="std_modal_text">
+                  바른 자세로 수업에 집중!
+                </div>
             </div>
             <div id="std2_modal5" class="std2_modal" style="display: none">
-              <img id="close_alarm_stu2" style="width: 100%; border-radius: 15px"
-                src="https://drive.google.com/uc?id=1Eva5Gsm7usV4DJlMKDPQJk4NJNT31Dm_" />
-              <div class="std_modal_alarm_text">
-                &nbsp;&nbsp;주목! 선생님에게 집중해 보아요!
-              </div>
+              <img id="close_alarm_stu2" style="width: 100%;height: 100%; border-radius: 15px"
+                src="http://drive.google.com/uc?export=view&id=148y8hpVRa-ALKwMBJnlI_EkhiMkkaFza" />
+                <div class="std_modal_text">
+                  선생님에게 집중해보아요!
+                </div>
             </div>
           </div>
 
           <div class="std3__modal">
-            <div id="std3_modal4" class="std3_modal" style="display: none;border: 3px solid #7D4EDA">
-              <div class="explain_to_teacher">
-                <center>졸음 방지</center>
-              </div>
+            <div id="std3_modal4" class="std3_modal" style="display: none;border: 4px solid #7D4EDA">
               <img id="close_bomb_std3" class="std_modal_bomb_picture"
                 src="https://drive.google.com/uc?id=1GuZWaZNCnpw0KvtlMun6EQ2Zkq0b3p_8" />
-              <div class="std_modal_bomb_text">
-                &nbsp;&nbsp;&nbsp;폭탄이 터지는걸 막아주세요!
-              </div>
+                <div class="std_modal_text">
+                  터지는 폭탄을 막아줘요!
+                </div>
             </div>
 
-            <div id="std3_modal1" class="std3_modal" style="display: none; border: 3px solid #F6B220">
-              <div class="explain_to_teacher">
-                <center>자리 비움</center>
-              </div>
+            <div id="std3_modal1" class="std3_modal" style="display: none; border: 4px solid #F6B220">
               <img id="colse_thief_std3" class="std_modal_thief"
                 src="https://drive.google.com/uc?id=1DFZf5XYsZZsH3c-tFVF0SUzHg8IaZLIw" />
-              <div class="std_modal_thief_text">도둑을 클릭해 보물을 지켜주세요!</div>
+              <div class="std_modal_text1">도둑을 클릭해 보물을 지켜요!</div>
             </div>
 
-            <div id="std3_modal3" class="std3_modal" style="display: none; border: 3px solid #EE7B33">
-              <div class="std_modal_speech_text">
-                &nbsp;&nbsp;&nbsp;적극적으로 발표해 보아요!
-              </div>
-              <div class="explain_to_teacher">
-                <center>발화 독려</center>
-              </div>
+            <div id="std3_modal3" class="std3_modal" style="display: none; border: 4px solid #EE7B33">
               <img id="close_speech_stu1" class="std_modal_speech"
                 src="https://drive.google.com/uc?id=1AkaFtPofzu35z03enhZKZ6Sg4qk2EnLX" />
+                <div class="std_modal_text">적극적으로 발표해 보아요!</div>
             </div>
-            <div id="std3_modal2" class="std3_modal" style="display: none; border: 3px solid #4B99D5">
-              <div class="std_modal_posture_text">
-                &nbsp;바른 자세로 수업에 집중해 보아요!
-              </div>
-              <div class="explain_to_teacher">
-                <center>자세 교정</center>
-              </div>
+            <div id="std3_modal2" class="std3_modal" style="display: none; border: 4px solid #4B99D5">
               <img id="close_posture_std3" class="std_modal_speech"
                 src="http://drive.google.com/uc?export=view&id=1LWpNJ7eSiKre3P7Y5aPANmNZqnOxJ4qU" />
+                <div class="std_modal_text">
+                  바른 자세로 수업에 집중!
+                </div>
             </div>
             <div id="std3_modal5" class="std3_modal" style="display: none">
-              <img id="close_alarm_stu3" style="width: 100%; border-radius: 15px"
-                src="https://drive.google.com/uc?id=1Eva5Gsm7usV4DJlMKDPQJk4NJNT31Dm_" />
-              <div class="std_modal_alarm_text">
-                &nbsp;&nbsp;주목! 선생님에게 집중해 보아요!
-              </div>
+              <img id="close_alarm_stu3" style="width: 100%; height: 100%;border-radius: 15px"
+                src="http://drive.google.com/uc?export=view&id=148y8hpVRa-ALKwMBJnlI_EkhiMkkaFza" />
+                <div class="std_modal_text">
+                  선생님에게 집중해보아요!
+                </div>
             </div>
           </div>
 
           <div class="std4__modal">
-            <div id="std4_modal4" class="std4_modal" style="display: none;border: 3px solid #7D4EDA">
-              <div class="explain_to_teacher">
-                <center>졸음 방지</center>
-              </div>
+            <div id="std4_modal4" class="std4_modal" style="display: none;border: 4px solid #7D4EDA">
               <img id="close_bomb_std4" class="std_modal_bomb_picture"
                 src="https://drive.google.com/uc?id=1GuZWaZNCnpw0KvtlMun6EQ2Zkq0b3p_8" />
-              <div class="std_modal_bomb_text">
-                &nbsp;&nbsp;&nbsp;폭탄이 터지는걸 막아주세요!
-              </div>
+                <div class="std_modal_text">
+                  터지는 폭탄을 막아줘요!
+                </div>
             </div>
 
-            <div id="std4_modal1" class="std4_modal" style="display: none; border: 3px solid #F6B220">
-              <div class="explain_to_teacher">
-                <center>자리 비움</center>
-              </div>
+            <div id="std4_modal1" class="std4_modal" style="display: none; border: 4px solid #F6B220">
               <img id="colse_thief_std4" class="std_modal_thief"
                 src="https://drive.google.com/uc?id=1DFZf5XYsZZsH3c-tFVF0SUzHg8IaZLIw" />
-              <div class="std_modal_thief_text">도둑을 클릭해 보물을 지켜주세요!</div>
+              <div class="std_modal_text1">도둑을 클릭해 보물을 지켜요!</div>
             </div>
 
-            <div id="std4_modal3" class="std4_modal" style="display: none; border: 3px solid #EE7B33">
-              <div class="std_modal_speech_text">
-                &nbsp;&nbsp;&nbsp;적극적으로 발표해 보아요!
-              </div>
-              <div class="explain_to_teacher">
-                <center>발화 독려</center>
-              </div>
+            <div id="std4_modal3" class="std4_modal" style="display: none; border: 4px solid #EE7B33">
               <img id="close_speech_stu1" class="std_modal_speech"
                 src="https://drive.google.com/uc?id=1AkaFtPofzu35z03enhZKZ6Sg4qk2EnLX" />
+                <div class="std_modal_text">적극적으로 발표해 보아요!</div>
             </div>
-            <div id="std4_modal2" class="std4_modal" style="display: none; border: 3px solid #4B99D5">
-              <div class="std_modal_posture_text">
-                &nbsp;바른 자세로 수업에 집중해 보아요!
-              </div>
-              <div class="explain_to_teacher">
-                <center>자세 교정</center>
-              </div>
+            <div id="std4_modal2" class="std4_modal" style="display: none; border: 4px solid #4B99D5">
               <img id="close_posture_std4" class="std_modal_speech"
                 src="http://drive.google.com/uc?export=view&id=1LWpNJ7eSiKre3P7Y5aPANmNZqnOxJ4qU" />
+                <div class="std_modal_text">
+                  바른 자세로 수업에 집중!
+                </div>
             </div>
             <div id="std4_modal5" class="std4_modal" style="display: none">
-              <img id="close_alarm_stu4" style="width: 100%; border-radius: 15px"
-                src="https://drive.google.com/uc?id=1Eva5Gsm7usV4DJlMKDPQJk4NJNT31Dm_" />
-              <div class="std_modal_alarm_text">
-                &nbsp;&nbsp;주목! 선생님에게 집중해 보아요!
-              </div>
+              <img id="close_alarm_stu4" style="width: 100%;height: 100%; border-radius: 15px"
+                src="http://drive.google.com/uc?export=view&id=148y8hpVRa-ALKwMBJnlI_EkhiMkkaFza" />
+                <div class="std_modal_text">
+                  선생님에게 집중해보아요!
+                </div>
             </div>
           </div>
 
@@ -1361,10 +1348,10 @@
                         <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
                         <img id ="stu1_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
                     </div>
-                    <img id ="stu1_balloon1"class="textballoon1"src="http://drive.google.com/uc?export=view&id=1pOyiWias48W4fdxHh4Ypa8mW0VVk_nUs">
-                    <img id ="stu1_balloon2"class="textballoon2"src="http://drive.google.com/uc?export=view&id=1csdUlw6LPZ4guYIn4ZBsA-000kl6jN9N">
-                    <img id ="stu1_balloon3"class="textballoon3"src="http://drive.google.com/uc?export=view&id=1LY6sgkWo_uNJja8r4-bbDyfDjxiFLdM4">
-                    <img id ="stu1_balloon4"class="textballoon4"src="http://drive.google.com/uc?export=view&id=1VlzxYaXoqNA4QACux8NOoGXoWdAn_fYX">
+                    <img id ="stu1_balloon1"class="textballoon1"src="http://drive.google.com/uc?export=view&id=1q5IiINAXbq5_Sk3vd8SRvGlKrvLsbN3T">
+                    <img id ="stu1_balloon2"class="textballoon2"src="http://drive.google.com/uc?export=view&id=18c_cZspIEqFCvsmESaZY2BvOoF3Aj88m">
+                    <img id ="stu1_balloon3"class="textballoon3"src="http://drive.google.com/uc?export=view&id=12SHgMEo0oyM71eyful1ZDQ1VbqYcSCKx">
+                    <img id ="stu1_balloon4"class="textballoon4"src="http://drive.google.com/uc?export=view&id=11O8w1_RfvBALwf0UWscibktaP-zjO8d3">
                 </div>
 
                 <div class="stdfooter" style="left: 74px;top: 419px;">
@@ -1427,10 +1414,10 @@
                         <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
                         <img id ="stu2_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
                     </div>
-                    <img id ="stu2_balloon1"class="textballoon1"src="http://drive.google.com/uc?export=view&id=1pOyiWias48W4fdxHh4Ypa8mW0VVk_nUs">
-                    <img id ="stu2_balloon2"class="textballoon2"src="http://drive.google.com/uc?export=view&id=1csdUlw6LPZ4guYIn4ZBsA-000kl6jN9N">
-                    <img id ="stu2_balloon3"class="textballoon3"src="http://drive.google.com/uc?export=view&id=1LY6sgkWo_uNJja8r4-bbDyfDjxiFLdM4">
-                    <img id ="stu2_balloon4"class="textballoon4"src="http://drive.google.com/uc?export=view&id=1VlzxYaXoqNA4QACux8NOoGXoWdAn_fYX">
+                    <img id ="stu2_balloon1"class="textballoon1"src="http://drive.google.com/uc?export=view&id=1q5IiINAXbq5_Sk3vd8SRvGlKrvLsbN3T">
+                    <img id ="stu2_balloon2"class="textballoon2"src="http://drive.google.com/uc?export=view&id=18c_cZspIEqFCvsmESaZY2BvOoF3Aj88m">
+                    <img id ="stu2_balloon3"class="textballoon3"src="http://drive.google.com/uc?export=view&id=12SHgMEo0oyM71eyful1ZDQ1VbqYcSCKx">
+                    <img id ="stu2_balloon4"class="textballoon4"src="http://drive.google.com/uc?export=view&id=11O8w1_RfvBALwf0UWscibktaP-zjO8d3">
                 </div>
 
                 <div class="stdfooter" style="left: 758px;top: 419px;">
@@ -1490,10 +1477,10 @@
                         <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE" >
                         <img id ="stu3_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
                     </div>
-                    <img id ="stu3_balloon1"class="textballoon1"src="http://drive.google.com/uc?export=view&id=1pOyiWias48W4fdxHh4Ypa8mW0VVk_nUs">
-                    <img id ="stu3_balloon2"class="textballoon2"src="http://drive.google.com/uc?export=view&id=1csdUlw6LPZ4guYIn4ZBsA-000kl6jN9N">
-                    <img id ="stu3_balloon3"class="textballoon3"src="http://drive.google.com/uc?export=view&id=1LY6sgkWo_uNJja8r4-bbDyfDjxiFLdM4">
-                    <img id ="stu3_balloon4"class="textballoon4"src="http://drive.google.com/uc?export=view&id=1VlzxYaXoqNA4QACux8NOoGXoWdAn_fYX">
+                    <img id ="stu3_balloon1"class="textballoon1"src="http://drive.google.com/uc?export=view&id=1q5IiINAXbq5_Sk3vd8SRvGlKrvLsbN3T">
+                    <img id ="stu3_balloon2"class="textballoon2"src="http://drive.google.com/uc?export=view&id=18c_cZspIEqFCvsmESaZY2BvOoF3Aj88m">
+                    <img id ="stu3_balloon3"class="textballoon3"src="http://drive.google.com/uc?export=view&id=12SHgMEo0oyM71eyful1ZDQ1VbqYcSCKx">
+                    <img id ="stu3_balloon4"class="textballoon4"src="http://drive.google.com/uc?export=view&id=11O8w1_RfvBALwf0UWscibktaP-zjO8d3">
                 </div>
 
                 <div class="stdfooter" style="left: 74px;top: 825px;">
@@ -1554,10 +1541,10 @@
                         <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
                         <img id ="stu4_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
                     </div>
-                    <img id ="stu4_balloon1"class="textballoon1"src="http://drive.google.com/uc?export=view&id=1pOyiWias48W4fdxHh4Ypa8mW0VVk_nUs">
-                    <img id ="stu4_balloon2"class="textballoon2"src="http://drive.google.com/uc?export=view&id=1csdUlw6LPZ4guYIn4ZBsA-000kl6jN9N">
-                    <img id ="stu4_balloon3"class="textballoon3"src="http://drive.google.com/uc?export=view&id=1LY6sgkWo_uNJja8r4-bbDyfDjxiFLdM4">
-                    <img id ="stu4_balloon4"class="textballoon4"src="http://drive.google.com/uc?export=view&id=1VlzxYaXoqNA4QACux8NOoGXoWdAn_fYX">
+                    <img id ="stu4_balloon1"class="textballoon1"src="http://drive.google.com/uc?export=view&id=1q5IiINAXbq5_Sk3vd8SRvGlKrvLsbN3T">
+                    <img id ="stu4_balloon2"class="textballoon2"src="http://drive.google.com/uc?export=view&id=18c_cZspIEqFCvsmESaZY2BvOoF3Aj88m">
+                    <img id ="stu4_balloon3"class="textballoon3"src="http://drive.google.com/uc?export=view&id=12SHgMEo0oyM71eyful1ZDQ1VbqYcSCKx">
+                    <img id ="stu4_balloon4"class="textballoon4"src="http://drive.google.com/uc?export=view&id=11O8w1_RfvBALwf0UWscibktaP-zjO8d3">
                 </div>
 
                 <div class="stdfooter" style="left: 758px;top: 825px;">
@@ -2091,15 +2078,22 @@
           finishAlarm.style.display = "block";
         }
         let totalcolor = std1totalcolor[0]+std1totalcolor[1]+std1totalcolor[2]+1;
-        std1score=(((std1totalcolor[2]+1)/totalcolor)*5/3+(std1totalcolor[1]/totalcolor)*2/3)*(1-(std1totalcolor[0]/totalcolor)/2)*100;
-        std2score=(((std2totalcolor[2]+1)/totalcolor)*5/3+(std2totalcolor[1]/totalcolor)*2/3)*(1-(std2totalcolor[0]/totalcolor)/2)*100;
+        std1score=70+std1totalcolor[2]-std1totalcolor[0];
+        std2score=70+std2totalcolor[2]-std2totalcolor[0];
+        std3score=70+std3totalcolor[2]-std3totalcolor[0];
+        std4score=70+std4totalcolor[2]-std4totalcolor[0];
+        /*std2score=(((std2totalcolor[2]+1)/totalcolor)*5/3+(std2totalcolor[1]/totalcolor)*2/3)*(1-(std2totalcolor[0]/totalcolor)/2)*100;
         std3score=(((std3totalcolor[2]+1)/totalcolor)*5/3+(std3totalcolor[1]/totalcolor)*2/3)*(1-(std3totalcolor[0]/totalcolor)/2)*100;
         std4score=(((std4totalcolor[2]+1)/totalcolor)*5/3+(std4totalcolor[1]/totalcolor)*2/3)*(1-(std4totalcolor[0]/totalcolor)/2)*100;
-
-        if(std1score>100) std1score=100;
-        if(std2score>100) std2score=100;
-        if(std3score>100) std3score=100;
-        if(std4score>100) std4score=100;
+        */
+        if(std1score>100){ std1score=100;}
+        else if(std1score<0){std1score=0;}
+        if(std2score>100) {std2score=100;}
+        else if(std2score<0){std2score=0;}
+        if(std3score>100) {std3score=100;}
+        else if(std3score<0){std3score=0;}
+        if(std4score>100) {std4score=100;}
+        else if(std4score<0){std4score=0;}
       },
       error: function (error) {
         console.log("error!");
@@ -2566,7 +2560,7 @@
     progressbaranimation(std4progressbar,std4score);*/
 
     std1progressbar.style.width = String(std1score)+"%";
-    if(std1score<=30){
+    if(std1score<=40){
       std1progressbar.style.background = "#FF5037";
     }
     else if(std1score<=70){
@@ -2576,7 +2570,7 @@
       std1progressbar.style.background = "#40CC30";
     }
     std2progressbar.style.width = String(std2score)+"%";
-    if(std2score<=30){
+    if(std2score<=40){
       std2progressbar.style.background = "#FF5037";
     }
     else if(std2score<=70){
@@ -2586,7 +2580,7 @@
       std2progressbar.style.background = "#40CC30";
     }
     std3progressbar.style.width = String(std3score)+"%";
-    if(std3score<=30){
+    if(std3score<=40){
       std3progressbar.style.background = "#FF5037";
     }
     else if(std3score<=70){
@@ -2596,7 +2590,7 @@
       std3progressbar.style.background = "#40CC30";
     }
     std4progressbar.style.width = String(std4score)+"%";
-    if(std4score<=30){
+    if(std4score<=40){
       std4progressbar.style.background = "#FF5037";
     }
     else if(std4score<=70){
