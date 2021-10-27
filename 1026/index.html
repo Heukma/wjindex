@@ -122,7 +122,7 @@
             width: 458px;
             height: 50px;
 
-            background: #15C2B2;
+            background: #FFD151;
             border-radius: 6px 6px 0px 0px;
         }
 
@@ -2069,11 +2069,11 @@
           /*video end*/
           finishAlarm.style.display = "block";
         }
-        let totalcolor = std1totalcolor[0]+std1totalcolor[1]+std1totalcolor[2];
-        std1score=((std1totalcolor[0]/totalcolor)*5/3+(std1totalcolor[1]/totalcolor)*2/3)*(1-(std1totalcolor[2]/totalcolor)/2)*100;
-        std2score=((std2totalcolor[0]/totalcolor)*5/3+(std2totalcolor[1]/totalcolor)*2/3)*(1-(std2totalcolor[2]/totalcolor)/2)*100;
-        std3score=((std3totalcolor[0]/totalcolor)*5/3+(std3totalcolor[1]/totalcolor)*2/3)*(1-(std3totalcolor[2]/totalcolor)/2)*100;
-        std4score=((std4totalcolor[0]/totalcolor)*5/3+(std4totalcolor[1]/totalcolor)*2/3)*(1-(std4totalcolor[2]/totalcolor)/2)*100;
+        let totalcolor = std1totalcolor[0]+std1totalcolor[1]+std1totalcolor[2]+1;
+        std1score=(((std1totalcolor[2]+1)/totalcolor)*5/3+(std1totalcolor[1]/totalcolor)*2/3)*(1-(std1totalcolor[0]/totalcolor)/2)*100;
+        std2score=(((std2totalcolor[2]+1)/totalcolor)*5/3+(std2totalcolor[1]/totalcolor)*2/3)*(1-(std2totalcolor[0]/totalcolor)/2)*100;
+        std3score=(((std3totalcolor[2]+1)/totalcolor)*5/3+(std3totalcolor[1]/totalcolor)*2/3)*(1-(std3totalcolor[0]/totalcolor)/2)*100;
+        std4score=(((std4totalcolor[2]+1)/totalcolor)*5/3+(std4totalcolor[1]/totalcolor)*2/3)*(1-(std4totalcolor[0]/totalcolor)/2)*100;
 
         if(std1score>100) std1score=100;
         if(std2score>100) std2score=100;
@@ -2318,17 +2318,18 @@
             std1modalon=0;
           }
           std1_modal2_off();
-          stu1_balloon2.style.display = "block";
+          stu1_balloon2.style.display = "none";
           stu1_img2.style.display = "none";
         }
         if(student1record[2]>5){
+          // 순서 뒤집힌거 조심하기
           //std1_modal3_on();
-          stu1_balloon3.style.display = "block";
+          stu1_balloon4.style.display = "block";
           stu1_img3.style.display = "block";
         }
         else{
           //std1_modal3_off();
-          stu1_balloon3.style.display = "block";
+          stu1_balloon4.style.display = "none";
           stu1_img3.style.display = "none";
         }
         if(student1record[3]>5){
@@ -2336,7 +2337,7 @@
             std1modalon=4;
             std1_modal4_on();
           }
-          stu1_balloon4.style.display = "block";
+          stu1_balloon3.style.display = "block";
           stu1_img4.style.display = "block";
         }
         else{
@@ -2344,7 +2345,7 @@
             std1modalon=0;
           }
           std1_modal4_off();
-          stu1_balloon4.style.display = "block";
+          stu1_balloon3.style.display = "none";
           stu1_img4.style.display = "none";
         }
 
@@ -2383,12 +2384,12 @@
         }
         if(student2record[2]>5){
           //std2_modal3_on();
-          stu2_balloon3.style.display = "block";
+          stu2_balloon4.style.display = "block";
           stu2_img3.style.display = "block";
         }
         else{
           //std2_modal3_off();
-          stu2_balloon3.style.display = "none";
+          stu2_balloon4.style.display = "none";
           stu2_img3.style.display = "none";
         }
         if(student2record[3]>10){
@@ -2396,7 +2397,7 @@
             std2modalon=4;
             std2_modal4_on();
           }
-          stu2_balloon4.style.display = "block";
+          stu2_balloon3.style.display = "block";
           stu2_img4.style.display = "block";
         }
         else{
@@ -2404,7 +2405,7 @@
             std2modalon=0;
           }
           std2_modal4_off();
-          stu2_balloon4.style.display = "none";
+          stu2_balloon3.style.display = "none";
           stu2_img4.style.display = "none";
         }
 
@@ -2443,12 +2444,12 @@
         }
         if(student3record[2]>5){
           //std3_modal3_on();
-          stu3_balloon3.style.display = "block";
+          stu3_balloon4.style.display = "block";
           stu3_img3.style.display = "block";
         }
         else{
           //std3_modal3_off();
-          stu3_balloon3.style.display = "none";
+          stu3_balloon4.style.display = "none";
           stu3_img3.style.display = "none";
         }
         if(student3record[3]>10){
@@ -2456,7 +2457,7 @@
             std3modalon=4;
             std3_modal4_on();
           }
-          stu3_balloon4.style.display = "block";
+          stu3_balloon3.style.display = "block";
           stu3_img4.style.display = "block";
         }
         else{
@@ -2464,7 +2465,7 @@
             std3modalon=0;
           }
           std3_modal4_off();
-          stu3_balloon4.style.display = "none";
+          stu3_balloon3.style.display = "none";
           stu3_img4.style.display = "none";
         }
 
@@ -2503,12 +2504,12 @@
         }
         if(student4record[2]>5){
           //std4_modal3_on();
-          stu4_balloon3.style.display = "block";
+          stu4_balloon4.style.display = "block";
           stu4_img3.style.display = "block";
         }
         else{
           //std4_modal3_off();
-          stu4_balloon3.style.display = "none";
+          stu4_balloon4.style.display = "none";
           stu4_img3.style.display = "none";
         }
         if(student4record[3]>10){
@@ -2516,7 +2517,7 @@
             std4modalon=4;
             std4_modal4_on();
           }
-          stu4_balloon4.style.display = "block";
+          stu4_balloon3.style.display = "block";
           stu4_img4.style.display = "block";
         }
         else{
@@ -2524,7 +2525,7 @@
             std4modalon=0;
           }
           std4_modal4_off();
-          stu4_balloon4.style.display = "none";
+          stu4_balloon3.style.display = "none";
           stu4_img4.style.display = "none";
         }
       },
