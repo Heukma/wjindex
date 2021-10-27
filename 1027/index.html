@@ -1227,6 +1227,7 @@
   const std1_modal4 = document.getElementById("std1_modal4");
   const std1_modal5 = document.getElementById("std1_modal5");
   function std1_modal1_on(){
+    modal1audio1.volume =0.5;
     modal1audio1.play();
     std1_modal1.style.display = "block";
 
@@ -1244,6 +1245,7 @@
   }
   function std1_modal3_on(){
     std1_modal3.style.display = "block";
+    modal3audio1.volume =0.5;
     modal3audio1.play();
   }
   function std1_modal3_off(){
@@ -1277,6 +1279,7 @@
   const std2_modal5 = document.getElementById("std2_modal5");
   function std2_modal1_on(){
     std2_modal1.style.display = "block";
+    modal1audio2.audio = 0.5;
     modal1audio2.play();
   }
   function std2_modal1_off(){
@@ -1292,6 +1295,7 @@
   }
   function std2_modal3_on(){
     std2_modal3.style.display = "block";
+    modal3audio2.audio = 0.5;
     modal3audio2.play();
   }
   function std2_modal3_off(){
@@ -1325,6 +1329,7 @@
   const std3_modal5 = document.getElementById("std3_modal5");
   function std3_modal1_on(){
     std3_modal1.style.display = "block";
+    modal1audio3.audio = 0.5;
     modal1audio3.play();
   }
   function std3_modal1_off(){
@@ -1340,6 +1345,7 @@
   }
   function std3_modal3_on(){
     std3_modal3.style.display = "block";
+    modal3audio3.audio = 0.5;
     modal3audio3.play();
   }
   function std3_modal3_off(){
@@ -1373,6 +1379,7 @@
   const std4_modal5 = document.getElementById("std4_modal5");
   function std4_modal1_on(){
     std4_modal1.style.display = "block";
+    modal1audio4.audio = 0.5;
     modal1audio4.play();
   }
   function std4_modal1_off(){
@@ -1388,6 +1395,7 @@
   }
   function std4_modal3_on(){
     std4_modal3.style.display = "block";
+    modal3audio4.audio = 0.5;
     modal3audio4.play();
   }
   function std4_modal3_off(){
@@ -1419,6 +1427,7 @@
     std2_modal5.style.display = "block";
     std3_modal5.style.display = "block";
     std4_modal5.style.display = "block";
+    modal5audio.audio = 0.5;
     modal5audio.play();
   }
   function alarm_off(){
@@ -1490,6 +1499,7 @@
         student3color = response["stu3Color"];
         student4color = response["stu4Color"];
         /* 0: not engaged 1: nutural 2: highly engaged*/
+        /* 집중도에 따라서 stdhead의 색깔이 바뀌는 코드
         if(student1color==="0"){
           std1head.style.backgroundColor = "#FF5037";
         }
@@ -1528,7 +1538,7 @@
         }
         else if(student4color==="2"){
           std4head.style.backgroundColor = "#40CC30";
-        }
+        }*/
 
 
       },

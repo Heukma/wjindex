@@ -6,11 +6,9 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="{{ url_for('static', filename='scoring_circular_bar.css') }}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <style>
         #wrap {
             width: 100%;
@@ -124,7 +122,7 @@
             width: 458px;
             height: 50px;
 
-            background: #40CC30;
+            background: #15C2B2;
             border-radius: 6px 6px 0px 0px;
         }
 
@@ -191,6 +189,34 @@
             left: 27px;
             background: #FFFFFF;
             border-radius: 9.52443px;
+        }
+        .agentmenu .textballoon1{
+            position: absolute;
+            display: none;
+            overflow: visible;
+            top:34px;
+            left:122px;
+        }
+        .agentmenu .textballoon2{
+            position: absolute;
+            display: none;
+            overflow: visible;
+            top:109px;
+            left:122px;
+        }
+        .agentmenu .textballoon3{
+            position: absolute;
+            display: none;
+            overflow: visible;
+            top:186px;
+            left:122px;
+        }
+        .agentmenu .textballoon4{
+            position: absolute;
+            display: none;
+            overflow: visible;
+            top:260px;
+            left:122px;
         }
 
         .chairoption {
@@ -664,7 +690,7 @@
             font-weight: bold;
             padding: 20px;
           }
-          .progress{
+          .progresscontainer{
             position: absolute;
             width: 360px;
             height: 24px;
@@ -672,7 +698,27 @@
             left : 60px;
           }
 
-          #std1progressbar{
+          .progressmax{
+            position: absolute;
+            width: 360px;
+            height: 24px;
+            left: 0px;
+            top: 0px;
+            background: #FCF1DF;
+            border-radius: 5px;
+          }
+
+          .progressnow{
+            position: absolute;
+            width: 20%;
+            height: 24px;
+            left: 0px;
+            top: 0px;
+            background: #40CC30;
+            border-radius: 5px;
+          }
+
+          /*#std1progressbar{
             width: 50%;
           }
           #std2progressbar{
@@ -683,7 +729,7 @@
           }
           #std4progressbar{
             width: 50%;
-          }
+          }*/
           .result_overlay {
             background: rgba(0, 0, 0, 0.7);
             display: none;
@@ -1302,6 +1348,10 @@
                         <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
                         <img id ="stu1_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
                     </div>
+                    <img id ="stu1_balloon1"class="textballoon1"src="./자리이탈.png">
+                    <img id ="stu1_balloon2"class="textballoon2"src="./자세불량.png">
+                    <img id ="stu1_balloon3"class="textballoon3"src="./졸음감지.png">
+                    <img id ="stu1_balloon4"class="textballoon4"src="./발화저조.png">
                 </div>
 
                 <div class="stdfooter" style="left: 74px;top: 419px;">
@@ -1310,8 +1360,9 @@
                       <img src="http://drive.google.com/uc?export=view&id=1TKED44n_G0oxShCnN-dNo4Z25ATVHoSz">
                     </div>
 
-                    <div class="progress active">
-                        <div id="std1progressbar" class="progress-bar progress-bar-success" style="font-size: 15px"></div>
+                    <div class="progresscontainer">
+                        <div class="progressmax"></div>
+                        <div id="std1progressbar" class="progressnow"></div>
                     </div>
 
                     <div class="bar">
@@ -1362,6 +1413,10 @@
                         <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
                         <img id ="stu2_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
                     </div>
+                    <img id ="stu2_balloon1"class="textballoon1"src="./자리이탈.png">
+                    <img id ="stu2_balloon2"class="textballoon2"src="./자세불량.png">
+                    <img id ="stu2_balloon3"class="textballoon3"src="./졸음감지.png">
+                    <img id ="stu2_balloon4"class="textballoon4"src="./발화저조.png">
                 </div>
 
                 <div class="stdfooter" style="left: 758px;top: 419px;">
@@ -1369,8 +1424,9 @@
                     <div class="heart">
                       <img src="http://drive.google.com/uc?export=view&id=1TKED44n_G0oxShCnN-dNo4Z25ATVHoSz">
                     </div>
-                    <div class="progress active">
-                        <div id="std2progressbar" class="progress-bar progress-bar-success" style="font-size: 15px"></div>
+                    <div class="progresscontainer">
+                        <div class="progressmax"></div>
+                        <div id="std2progressbar" class="progressnow"></div>
                     </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
@@ -1419,6 +1475,10 @@
                         <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE" >
                         <img id ="stu3_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
                     </div>
+                    <img id ="stu3_balloon1"class="textballoon1"src="./자리이탈.png">
+                    <img id ="stu3_balloon2"class="textballoon2"src="./자세불량.png">
+                    <img id ="stu3_balloon3"class="textballoon3"src="./졸음감지.png">
+                    <img id ="stu3_balloon4"class="textballoon4"src="./발화저조.png">
                 </div>
 
                 <div class="stdfooter" style="left: 74px;top: 825px;">
@@ -1426,8 +1486,9 @@
                     <div class="heart">
                       <img src="http://drive.google.com/uc?export=view&id=1TKED44n_G0oxShCnN-dNo4Z25ATVHoSz">
                     </div>
-                    <div class="progress active">
-                        <div id="std3progressbar" class="progress-bar progress-bar-success" style="font-size: 15px"></div>
+                    <div class="progresscontainer">
+                        <div class="progressmax"></div>
+                        <div id="std3progressbar" class="progressnow"></div>
                     </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
@@ -1477,6 +1538,10 @@
                         <img class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=14GjZKC2A6jLojA-NtFsKP97haatwAOZE">
                         <img id ="stu4_img3" class="thirdoptionimg" src="http://drive.google.com/uc?export=view&id=1-pmV3eeJwUr3FRqrQW5Am7zcnWvr-i9I" style="display: none;">
                     </div>
+                    <img id ="stu4_balloon1"class="textballoon1"src="./자리이탈.png">
+                    <img id ="stu4_balloon2"class="textballoon2"src="./자세불량.png">
+                    <img id ="stu4_balloon3"class="textballoon3"src="./졸음감지.png">
+                    <img id ="stu4_balloon4"class="textballoon4"src="./발화저조.png">
                 </div>
 
                 <div class="stdfooter" style="left: 758px;top: 825px;">
@@ -1484,8 +1549,9 @@
                     <div class="heart">
                       <img src="http://drive.google.com/uc?export=view&id=1TKED44n_G0oxShCnN-dNo4Z25ATVHoSz">
                     </div>
-                    <div class="progress active">
-                        <div id="std4progressbar" class="progress-bar progress-bar-success" style="font-size: 15px"></div>
+                    <div class="progresscontainer">
+                        <div class="progressmax"></div>
+                        <div id="std4progressbar" class="progressnow"></div>
                     </div>
                     <div class="bar">
                         <img src="http://drive.google.com/uc?export=view&id=1oX8V7vakD0hJK-UE2rL00lelaioeHLJD">
@@ -1616,6 +1682,27 @@
   const stu4_img4 = document.getElementById("stu4_img4");
   /*버튼 활성화 시키기*/
 
+  /*말풍선 활성화 시키기*/
+  const stu1_balloon1 = document.getElementById("stu1_balloon1");
+  const stu1_balloon2 = document.getElementById("stu1_balloon2");
+  const stu1_balloon3 = document.getElementById("stu1_balloon3");
+  const stu1_balloon4 = document.getElementById("stu1_balloon4");
+
+  const stu2_balloon1 = document.getElementById("stu2_balloon1");
+  const stu2_balloon2 = document.getElementById("stu2_balloon2");
+  const stu2_balloon3 = document.getElementById("stu2_balloon3");
+  const stu2_balloon4 = document.getElementById("stu2_balloon4");
+
+  const stu3_balloon1 = document.getElementById("stu3_balloon1");
+  const stu3_balloon2 = document.getElementById("stu3_balloon2");
+  const stu3_balloon3 = document.getElementById("stu3_balloon3");
+  const stu3_balloon4 = document.getElementById("stu3_balloon4");
+
+  const stu4_balloon1 = document.getElementById("stu4_balloon1");
+  const stu4_balloon2 = document.getElementById("stu4_balloon2");
+  const stu4_balloon3 = document.getElementById("stu4_balloon3");
+  const stu4_balloon4 = document.getElementById("stu4_balloon4");
+
   /*학생 윗부분 색깔 바꾸기*/
   const std1head = document.getElementById("std1head");
   const std2head = document.getElementById("std2head");
@@ -1666,6 +1753,7 @@
   const std1_modal4 = document.getElementById("std1_modal4");
   const std1_modal5 = document.getElementById("std1_modal5");
   function std1_modal1_on(){
+    modal1audio1.volume =0.5;
     modal1audio1.play();
     std1_modal1.style.display = "block";
 
@@ -1689,6 +1777,7 @@
   }
   function std1_modal4_on(){
     std1_modal4.style.display = "block";
+    modal3audio1.volume =0.5;
     modal3audio1.play();
   }
   function std1_modal4_off(){
@@ -1715,6 +1804,7 @@
   const std2_modal4 = document.getElementById("std2_modal4");
   const std2_modal5 = document.getElementById("std2_modal5");
   function std2_modal1_on(){
+    modal1audio2.audio = 0.5;
     std2_modal1.style.display = "block";
     modal1audio2.play();
   }
@@ -1737,6 +1827,7 @@
   }
   function std2_modal4_on(){
     std2_modal4.style.display = "block";
+    modal3audio2.audio = 0.5;
     modal3audio2.play();
   }
   function std2_modal4_off(){
@@ -1764,6 +1855,7 @@
   const std3_modal5 = document.getElementById("std3_modal5");
   function std3_modal1_on(){
     std3_modal1.style.display = "block";
+    modal1audio3.audio = 0.5;
     modal1audio3.play();
   }
   function std3_modal1_off(){
@@ -1785,6 +1877,7 @@
   }
   function std3_modal4_on(){
     std3_modal4.style.display = "block";
+    modal3audio3.audio = 0.5;
     modal3audio3.play();
   }
   function std3_modal4_off(){
@@ -1812,6 +1905,7 @@
   const std4_modal5 = document.getElementById("std4_modal5");
   function std4_modal1_on(){
     std4_modal1.style.display = "block";
+    modal1audio4.audio = 0.5;
     modal1audio4.play();
   }
   function std4_modal1_off(){
@@ -1833,6 +1927,7 @@
   }
   function std4_modal4_on(){
     std4_modal4.style.display = "block";
+    modal3audio4.audio = 0.5;
     modal3audio4.play();
   }
   function std4_modal4_off(){
@@ -1858,6 +1953,7 @@
     std2_modal5.style.display = "block";
     std3_modal5.style.display = "block";
     std4_modal5.style.display = "block";
+    modal5audio.audio = 0.5;
     modal5audio.play();
   }
   function alarm_off(){
@@ -1917,6 +2013,7 @@
         student3color = response["stu3Color"];
         student4color = response["stu4Color"];
         /* 0: not engaged 1: nutural 2: highly engaged*/
+        /* 집중도에 따라서 stdhead의 색깔이 바뀌는 코드
         if(student1color==="0"){
           std1totalcolor[0]++;
           std1head.style.backgroundColor = "#FF5037";
@@ -1967,7 +2064,7 @@
         else if(student4color==="2"){
           std4totalcolor[2]++;
           std4head.style.backgroundColor = "#40CC30";
-        }
+        }*/
         if(student1color==="-1"){
           /*video end*/
           finishAlarm.style.display = "block";
@@ -2198,6 +2295,7 @@
           }
 
           stu1_img1.style.display = "block";
+          stu1_balloon1.style.display = "block";
         }
         else{
           std1_modal1_off();
@@ -2205,6 +2303,7 @@
             std1modalon=0;
           }
           stu1_img1.style.display = "none";
+          stu1_balloon1.style.display = "none";
         }
         if(student1record[1]>5){
           if(std1modalon===0){
@@ -2212,20 +2311,24 @@
           std1modalon=2;
           }
           stu1_img2.style.display = "block";
+          stu1_balloon2.style.display = "block";
         }
         else{
           if(std1modalon===2){
             std1modalon=0;
           }
           std1_modal2_off();
+          stu1_balloon2.style.display = "block";
           stu1_img2.style.display = "none";
         }
         if(student1record[2]>5){
           //std1_modal3_on();
+          stu1_balloon3.style.display = "block";
           stu1_img3.style.display = "block";
         }
         else{
           //std1_modal3_off();
+          stu1_balloon3.style.display = "block";
           stu1_img3.style.display = "none";
         }
         if(student1record[3]>5){
@@ -2233,6 +2336,7 @@
             std1modalon=4;
             std1_modal4_on();
           }
+          stu1_balloon4.style.display = "block";
           stu1_img4.style.display = "block";
         }
         else{
@@ -2240,6 +2344,7 @@
             std1modalon=0;
           }
           std1_modal4_off();
+          stu1_balloon4.style.display = "block";
           stu1_img4.style.display = "none";
         }
 
@@ -2248,6 +2353,7 @@
             std1modalon=1;
             std2_modal1_on();
           }
+          stu2_balloon1.style.display = "block";
           stu2_img1.style.display = "block";
         }
         else{
@@ -2256,6 +2362,7 @@
           }
           std2_modal1_off();
           stu2_img1.style.display = "none";
+          stu2_balloon1.style.display = "none";
         }
 
         if(student2record[1]>5){
@@ -2263,6 +2370,7 @@
             std2modalon=2;
             std2_modal2_on();
           }
+          stu2_balloon2.style.display = "block";
           stu2_img2.style.display = "block";
         }
         else{
@@ -2270,14 +2378,17 @@
             std2modalon = 0;
           }
           std2_modal2_off();
+          stu2_balloon2.style.display = "none";
           stu2_img2.style.display = "none";
         }
         if(student2record[2]>5){
           //std2_modal3_on();
+          stu2_balloon3.style.display = "block";
           stu2_img3.style.display = "block";
         }
         else{
           //std2_modal3_off();
+          stu2_balloon3.style.display = "none";
           stu2_img3.style.display = "none";
         }
         if(student2record[3]>10){
@@ -2285,6 +2396,7 @@
             std2modalon=4;
             std2_modal4_on();
           }
+          stu2_balloon4.style.display = "block";
           stu2_img4.style.display = "block";
         }
         else{
@@ -2292,6 +2404,7 @@
             std2modalon=0;
           }
           std2_modal4_off();
+          stu2_balloon4.style.display = "none";
           stu2_img4.style.display = "none";
         }
 
@@ -2300,6 +2413,7 @@
             std3modalon=1;
             std3_modal1_on();
           }
+          stu3_balloon1.style.display = "block";
           stu3_img1.style.display = "block";
         }
         else{
@@ -2307,6 +2421,7 @@
             std3modalon = 0;
           }
           std3_modal1_off();
+          stu3_balloon1.style.display = "none";
           stu3_img1.style.display = "none";
         }
 
@@ -2315,6 +2430,7 @@
             std3modalon=2;
             std3_modal2_on();
           }
+          stu3_balloon2.style.display = "block";
           stu3_img2.style.display = "block";
         }
         else{
@@ -2322,14 +2438,17 @@
             std3modalon=0;
           }
           std3_modal2_off();
+          stu3_balloon2.style.display = "none";
           stu3_img2.style.display = "none";
         }
         if(student3record[2]>5){
           //std3_modal3_on();
+          stu3_balloon3.style.display = "block";
           stu3_img3.style.display = "block";
         }
         else{
           //std3_modal3_off();
+          stu3_balloon3.style.display = "none";
           stu3_img3.style.display = "none";
         }
         if(student3record[3]>10){
@@ -2337,6 +2456,7 @@
             std3modalon=4;
             std3_modal4_on();
           }
+          stu3_balloon4.style.display = "block";
           stu3_img4.style.display = "block";
         }
         else{
@@ -2344,6 +2464,7 @@
             std3modalon=0;
           }
           std3_modal4_off();
+          stu3_balloon4.style.display = "none";
           stu3_img4.style.display = "none";
         }
 
@@ -2352,6 +2473,7 @@
             std4modalon=1;
             std4_modal1_on();
           }
+          stu4_balloon1.style.display = "block";
           stu4_img1.style.display = "block";
         }
         else{
@@ -2359,6 +2481,7 @@
             std4modalon=0;
           }
           std4_modal1_off();
+          stu4_balloon1.style.display = "none";
           stu4_img1.style.display = "none";
         }
 
@@ -2367,6 +2490,7 @@
             std4modalon=2;
             std4_modal2_on();
           }
+          stu4_balloon2.style.display = "block";
           stu4_img2.style.display = "block";
         }
         else{
@@ -2374,14 +2498,17 @@
             std4modalon=0;
           }
           std4_modal2_off();
+          stu4_balloon2.style.display = "none";
           stu4_img2.style.display = "none";
         }
         if(student4record[2]>5){
           //std4_modal3_on();
+          stu4_balloon3.style.display = "block";
           stu4_img3.style.display = "block";
         }
         else{
           //std4_modal3_off();
+          stu4_balloon3.style.display = "none";
           stu4_img3.style.display = "none";
         }
         if(student4record[3]>10){
@@ -2389,6 +2516,7 @@
             std4modalon=4;
             std4_modal4_on();
           }
+          stu4_balloon4.style.display = "block";
           stu4_img4.style.display = "block";
         }
         else{
@@ -2396,6 +2524,7 @@
             std4modalon=0;
           }
           std4_modal4_off();
+          stu4_balloon4.style.display = "none";
           stu4_img4.style.display = "none";
         }
       },
@@ -2404,16 +2533,19 @@
       },
     });
   }, 1000);
-
+  function progressbaranimation(bar,score){
+    bar.animate({width: String(score)+"%"},1000);
+  }
   setInterval(function(){
-    std1progressbar.animate({width: String(std1score)+"%"},10000);
-    std1progressbar.style.width = String(std1score)+"%";
-    std2progressbar.animate({width: String(std2score)+"%"},10000);
-    std2progressbar.style.width = String(std2score)+"%";
-    std3progressbar.animate({width: String(std3score)+"%"},10000);
-    std3progressbar.style.width = String(std3score)+"%";
-    std4progressbar.animate({width: String(std4score)+"%"},10000);
-    std4progressbar.style.width = String(std4score)+"%";
+    progressbaranimation(std1progressbar,std1score);
+    progressbaranimation(std2progressbar,std2score);
+    progressbaranimation(std3progressbar,std3score);
+    progressbaranimation(std4progressbar,std4score);
+
+    //std1progressbar.style.width = String(std1score)+"%";
+    //std2progressbar.style.width = String(std2score)+"%";
+    //std3progressbar.style.width = String(std3score)+"%";
+    //std4progressbar.style.width = String(std4score)+"%";
   },10000);
   stu1_img3.addEventListener("click", (e) => {
     std1_modal3_on();
