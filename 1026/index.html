@@ -2571,10 +2571,11 @@
     std4progressbar.style.width = String(std4score)+"%";
   },1000);
   setInterval(function(){
-    std1progressbartext.textContent = "몰입도 "+String(std1score)+"%";
-    std2progressbartext.textContent = "몰입도 "+String(std2score)+"%";
-    std3progressbartext.textContent = "몰입도 "+String(std3score)+"%";
-    std4progressbartext.textContent = "몰입도 "+String(std4score)+"%";
+    //stdscore 유리수 -> 정수 변경
+    std1progressbartext.textContent = "몰입도 "+String(Math.round(std1score))+"%";
+    std2progressbartext.textContent = "몰입도 "+String(Math.round(std2score))+"%";
+    std3progressbartext.textContent = "몰입도 "+String(Math.round(std3score))+"%";
+    std4progressbartext.textContent = "몰입도 "+String(Math.round(std4score))+"%";
   },1000);
   stu1_img3.addEventListener("click", (e) => {
     std1_modal3_on();
