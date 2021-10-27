@@ -2566,9 +2566,45 @@
     progressbaranimation(std4progressbar,std4score);*/
 
     std1progressbar.style.width = String(std1score)+"%";
+    if(std1score<=30){
+      std1progressbar.style.background = "#FF5037";
+    }
+    else if(std1score<=70){
+      std1progressbar.style.background = "#FFD151";
+    }
+    else{
+      std1progressbar.style.background = "#40CC30";
+    }
     std2progressbar.style.width = String(std2score)+"%";
+    if(std2score<=30){
+      std2progressbar.style.background = "#FF5037";
+    }
+    else if(std2score<=70){
+      std2progressbar.style.background = "#FFD151";
+    }
+    else{
+      std2progressbar.style.background = "#40CC30";
+    }
     std3progressbar.style.width = String(std3score)+"%";
+    if(std3score<=30){
+      std3progressbar.style.background = "#FF5037";
+    }
+    else if(std3score<=70){
+      std3progressbar.style.background = "#FFD151";
+    }
+    else{
+      std3progressbar.style.background = "#40CC30";
+    }
     std4progressbar.style.width = String(std4score)+"%";
+    if(std4score<=30){
+      std4progressbar.style.background = "#FF5037";
+    }
+    else if(std4score<=70){
+      std4progressbar.style.background = "#FFD151";
+    }
+    else{
+      std4progressbar.style.background = "#40CC30";
+    }
   },1000);
   setInterval(function(){
     //stdscore 유리수 -> 정수 변경
